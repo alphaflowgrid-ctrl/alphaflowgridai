@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if .IsHome }}{{ .Site.Title }} — Smart Tools. Better Productivity.{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <link rel="icon" href="/logo.png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      background-color: #050d1a;
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      min-height: 100vh;
+    }
+
+    /* Navigation */
+    .navbar {
+      background: #050d1a;
+      border-bottom: 1px solid #1a3a5c;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .navbar-logo img {
+      height: 32px;
+      width: auto;
+    }
+
+    .navbar-logo span {
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .navbar-links a {
+      color: #7ca4cc;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .navbar-links a:hover {
+      color: #00ccff;
+    }
+
+    .navbar-search {
+      background: #0a1a2e;
+      border: 0.5px solid #1a3a5c;
+      border-radius: 6px;
+      padding: 6px 12px;
+      color: #7ca4cc;
+      font-size: 13px;
+      width: 200px;
+      outline: none;
+    }
+
+    .navbar-search:focus {
+      border-color: #00ccff;
+    }
+
+    /* Main content */
+    main {
+      min-height: calc(100vh - 60px);
+    }
+
+    /* Footer */
+    .site-footer {
+      background: #030810;
+      border-top: 1px solid #1a3a5c;
+      padding: 40px 24px 24px;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .footer-col-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: #7ca4cc;
+      text-decoration: none;
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: #00ccff;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 0.5px solid #1a3a5c;
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: #3a5c7a;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footer-socials a {
+      width: 32px;
+      height: 32px;
+      border: 0.5px solid #1a3a5c;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 16px;
+      transition: border-color 0.2s;
+    }
+
+    .footer-socials a:hover {
+      border-color: #00ccff;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #050d1a; }
+    ::-webkit-scrollbar-thumb { background: #1a3a5c; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #0066ff; }
+
+    /* Tables */
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    th { background: #0a1a2e; color: #ffffff; padding: 10px 14px; text-align: left; font-size: 13px; border: 1px solid #1a3a5c; }
+    td { padding: 10px 14px; color: #7ca4cc; border: 1px solid #1a3a5c; font-size: 13px; }
+    tr:hover td { background: #0a1a2e; }
+
+    /* Headings in content */
+    .content h1, .content h2, .content h3 { color: #ffffff; margin: 24px 0 12px; }
+    .content h2 { font-size: 20px; border-bottom: 1px solid #1a3a5c; padding-bottom: 8px; }
+    .content h3 { font-size: 16px; }
+    .content p { color: #7ca4cc; line-height: 1.7; margin-bottom: 12px; font-size: 15px; }
+    .content ul, .content ol { color: #7ca4cc; padding-left: 20px; margin-bottom: 12px; }
+    .content li { margin-bottom: 6px; line-height: 1.6; font-size: 15px; }
+    .content strong { color: #ffffff; }
+    .content hr { border: none; border-top: 1px solid #1a3a5c; margin: 24px 0; }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .navbar-links { display: none; }
+      .navbar-search { width: 140px; }
+    }
+  </style>
+  {{ partial "head-end.html" . }}
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="/" class="navbar-logo">
+      <img src="/logo.png" alt="AlphaFlowGridAI Logo">
+      <span>AlphaFlowGridAI</span>
+    </a>
+    <ul class="navbar-links">
+      <li><a href="/ai-tools/">AI Tools</a></li>
+      <li><a href="/saas/">SaaS</a></li>
+      <li><a href="/free-tools/">Free Tools</a></li>
+      <li><a href="/compare/">Compare</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/newsletter/">Newsletter</a></li>
+    </ul>
+    <input type="search" class="navbar-search" placeholder="Search tools...">
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    {{- block "main" . }}{{ end -}}
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-col-title">AI Tools</div>
+        <a href="/ai-tools/">AI Writing</a>
+        <a href="/ai-tools/">AI Video</a>
+        <a href="/ai-tools/">AI Image</a>
+        <a href="/ai-tools/">AI Coding</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">SaaS</div>
+        <a href="/saas/">Project Mgmt</a>
+        <a href="/saas/">CRM Tools</a>
+        <a href="/saas/">Marketing</a>
+        <a href="/saas/">Analytics</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Compare</div>
+        <a href="/compare/">ChatGPT vs Claude</a>
+        <a href="/compare/">Notion vs ClickUp</a>
+        <a href="/compare/">Canva vs Figma</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/terms-of-service/">Terms of Service</a>
+        <a href="/disclaimer/">Disclaimer</a>
+</div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 AlphaFlowGridAI. All rights reserved.</span>
+      <div class="footer-socials">
+        <a href="https://pinterest.com/alphaflowgrid" target="_blank">📌</a>
+        <a href="https://instagram.com/alphaflowgridai" target="_blank">📷</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

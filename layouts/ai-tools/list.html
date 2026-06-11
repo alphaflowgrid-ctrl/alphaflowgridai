@@ -1,0 +1,35 @@
+{{ define "main" }}
+<div class="custom-list-container" style="background-color: #030712; color: #ffffff; min-height: 100vh; padding: 3rem 1rem; font-family: system-ui, -apple-system, sans-serif;">
+  <div style="max-width: 1280px; margin: 0 auto;">
+    
+    <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 2.5rem; color: #ffffff; letter-spacing: -0.02em;">
+      {{ .Title }}
+    </h1>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+      
+      {{ range .Pages }}
+      <a href="{{ .Permalink }}" style="text-decoration: none; color: inherit; display: block; background-color: #060b18; border: 1px solid #111e38; border-radius: 0.75rem; padding: 1.5rem; transition: all 0.2s ease-in-out;"
+         onmouseover="this.style.borderColor='#1d4ed8'; this.style.backgroundColor='#081022'; this.style.boxShadow='0 0 15px rgba(29, 78, 216, 0.2)';" 
+         onmouseout="this.style.borderColor='#111e38'; this.style.backgroundColor='#060b18'; this.style.boxShadow='none';">
+         
+         <h3 style="color: #ffffff; margin: 0 0 0.5rem 0; font-size: 1.25rem; font-weight: 700;">{{ .Title }}</h3>
+         <p style="color: #94a3b8; margin: 0; font-size: 0.925rem; line-height: 1.5;">{{ .Description }}</p>
+         
+         <div style="margin-top: 1.25rem; font-size: 0.85rem; color: #3b82f6; font-weight: 600; display: flex; align-items: center; gap: 0.25rem;">
+             View Complete Protocol Review <span>&rarr;</span>
+         </div>
+      </a>
+      {{ else }}
+      <p style="color: #6b7280;">No AI tools listed yet. Add markdown files to content/ai-tools/ to populate this section.</p>
+      {{ end }}
+
+    </div>
+
+    <div class="list-content-wrapper" style="border-t: 1px solid #111e38; padding-top: 2rem; color: #6b7280; font-size: 0.9rem;">
+      {{ .Content }}
+    </div>
+
+  </div>
+</div>
+{{ end }}

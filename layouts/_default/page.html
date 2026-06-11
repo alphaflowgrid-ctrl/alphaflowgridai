@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div style="background:#050d1a; min-height:100vh; padding:40px 24px;">
+  <div style="max-width:800px; margin:0 auto;">
+
+    <!-- Breadcrumb -->
+    <div style="font-size:13px; color:#7ca4cc; margin-bottom:20px;">
+      <a href="/" style="color:#7ca4cc; text-decoration:none;">Home</a>
+      <span style="margin:0 6px;">›</span>
+      <span style="color:#00ccff;">{{ .Title }}</span>
+    </div>
+
+    <!-- Page Header -->
+    <div style="margin-bottom:32px; border-bottom:1px solid #1a3a5c; padding-bottom:24px;">
+      <h1 style="font-size:32px; font-weight:700; color:#ffffff; margin-bottom:8px;">{{ .Title }}</h1>
+      <p style="font-size:14px; color:#7ca4cc;">{{ .Description }}</p>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      {{ .Content }}
+    </div>
+
+  </div>
+</div>
+{{ end }}

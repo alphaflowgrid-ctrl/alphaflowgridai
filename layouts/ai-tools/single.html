@@ -1,0 +1,37 @@
+{{ define "main" }}
+<div style="background-color: #030712; color: #cbd5e1; min-height: 100vh; padding: 4rem 1rem; font-family: system-ui, -apple-system, sans-serif; width: 100%; box-sizing: border-box;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-flow: row wrap; gap: 2rem; width: 100%; box-sizing: border-box;">
+        
+        <nav style="flex: 1; min-width: 200px; max-width: 240px; position: sticky; top: 6rem; height: fit-content;">
+            <h4 style="color: #ffffff; font-size: 0.85rem; text-transform: uppercase; margin: 0 0 1.25rem 0;">On This Page</h4>
+            <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.9rem;">
+                <a href="#overview" style="color: #3b82f6; text-decoration: none;">Overview</a>
+            </div>
+        </nav>
+
+        <main style="flex: 3; min-width: 320px; background-color: #0b0f19; border: 1px solid #1f2937; border-radius: 12px; padding: 2.5rem; box-sizing: border-box;">
+            <div style="border-bottom: 1px solid #1f2937; padding-bottom: 1.75rem; margin-bottom: 2rem;">
+                <h1 style="color: #ffffff; font-size: 2.5rem; margin: 0 0 0.75rem 0;">{{ .Title }}</h1>
+            </div>
+            <div id="overview" style="line-height: 1.8; font-size: 1.05rem; color: #cbd5e1;">
+                {{ .Content }}
+            </div>
+        </main>
+
+        <aside style="flex: 1.2; min-width: 290px; max-width: 360px;">
+            <div style="background-color: #0b0f19; border: 1px solid #1f2937; border-radius: 12px; padding: 1.75rem; position: sticky; top: 6rem; box-sizing: border-box; width: 100%;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.75rem;">
+                    <span style="color: #94a3b8; font-size: 0.9rem;">Pricing Model</span>
+                    <span style="background-color: #1e1b4b; color: #38bdf8; border: 1px solid #2e1065; padding: 0.35rem 0.85rem; border-radius: 9999px;">{{ .Params.pricing | default "Freemium" }}</span>
+                </div>
+                <div style="background-color: #030712; border: 1px solid #1f2937; border-radius: 8px; padding: 1.25rem; text-align: center; margin-bottom: 1.75rem;">
+                    <div style="font-size: 0.75rem; color: #6b7280; margin-bottom: 0.35rem;">RadarScore</div>
+                    <div style="font-size: 2.75rem; color: #00d2ff;">{{ .Params.score | default "9.5" }}<span style="font-size: 1.1rem; color: #4b5563;">/10</span></div>
+                </div>
+                <a href="{{ .Params.affiliate_link | default "#" }}" style="display: block; background-color: #2563eb; color: #ffffff; text-align: center; text-decoration: none; padding: 1rem; border-radius: 6px;">Visit Official Site</a>
+            </div>
+        </aside>
+
+    </div>
+</div>
+{{ end }}

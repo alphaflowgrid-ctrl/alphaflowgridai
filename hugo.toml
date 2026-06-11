@@ -1,0 +1,47 @@
+baseURL = 'https://alphaflowgridai.pages.dev/'
+defaultContentLanguage = 'en'
+title = 'AlphaFlowGridAI'
+
+enableRobotsTXT = true
+
+[params]
+  description = "Smart Tools. Better Productivity. Your ultimate directory for AI Tools and SaaS products."
+
+[params.author]
+  name = "AlphaFlowGridAI"
+  email = "alphaflowgrid@gmail.com"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[[menu.main]]
+  name = "AI Tools"
+  url = "/ai-tools/"
+  weight = 1
+
+[[menu.main]]
+  name = "SaaS"
+  url = "/saas/"
+  weight = 2
+
+[[menu.main]]
+  name = "Free Tools"
+  url = "/free-tools/"
+  weight = 3
+
+[[menu.main]]
+  name = "Compare"
+  url = "/compare/"
+  weight = 4
+
+[[menu.main]]
+  name = "Blog"
+  url = "/blog/"
+  weight = 5
+
+[[menu.main]]
+  name = "Newsletter"
+  url = "/newsletter/"
+  weight = 6

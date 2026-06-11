@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT — AlphaFlowGridAI</title>
+  <meta name="description" content="Best all-round AI assistant by OpenAI for writing, analysis and everyday productivity.">
+  <link rel="icon" href="/logo.png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      background-color: #050d1a;
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      min-height: 100vh;
+    }
+
+     
+    .navbar {
+      background: #050d1a;
+      border-bottom: 1px solid #1a3a5c;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .navbar-logo img {
+      height: 32px;
+      width: auto;
+    }
+
+    .navbar-logo span {
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .navbar-links a {
+      color: #7ca4cc;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .navbar-links a:hover {
+      color: #00ccff;
+    }
+
+    .navbar-search {
+      background: #0a1a2e;
+      border: 0.5px solid #1a3a5c;
+      border-radius: 6px;
+      padding: 6px 12px;
+      color: #7ca4cc;
+      font-size: 13px;
+      width: 200px;
+      outline: none;
+    }
+
+    .navbar-search:focus {
+      border-color: #00ccff;
+    }
+
+     
+    main {
+      min-height: calc(100vh - 60px);
+    }
+
+     
+    .site-footer {
+      background: #030810;
+      border-top: 1px solid #1a3a5c;
+      padding: 40px 24px 24px;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .footer-col-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: #7ca4cc;
+      text-decoration: none;
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: #00ccff;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 0.5px solid #1a3a5c;
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: #3a5c7a;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footer-socials a {
+      width: 32px;
+      height: 32px;
+      border: 0.5px solid #1a3a5c;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 16px;
+      transition: border-color 0.2s;
+    }
+
+    .footer-socials a:hover {
+      border-color: #00ccff;
+    }
+
+     
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #050d1a; }
+    ::-webkit-scrollbar-thumb { background: #1a3a5c; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #0066ff; }
+
+     
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    th { background: #0a1a2e; color: #ffffff; padding: 10px 14px; text-align: left; font-size: 13px; border: 1px solid #1a3a5c; }
+    td { padding: 10px 14px; color: #7ca4cc; border: 1px solid #1a3a5c; font-size: 13px; }
+    tr:hover td { background: #0a1a2e; }
+
+     
+    .content h1, .content h2, .content h3 { color: #ffffff; margin: 24px 0 12px; }
+    .content h2 { font-size: 20px; border-bottom: 1px solid #1a3a5c; padding-bottom: 8px; }
+    .content h3 { font-size: 16px; }
+    .content p { color: #7ca4cc; line-height: 1.7; margin-bottom: 12px; font-size: 15px; }
+    .content ul, .content ol { color: #7ca4cc; padding-left: 20px; margin-bottom: 12px; }
+    .content li { margin-bottom: 6px; line-height: 1.6; font-size: 15px; }
+    .content strong { color: #ffffff; }
+    .content hr { border: none; border-top: 1px solid #1a3a5c; margin: 24px 0; }
+
+     
+    @media (max-width: 768px) {
+      .navbar-links { display: none; }
+      .navbar-search { width: 140px; }
+    }
+  </style>
+  
+</head>
+<body>
+
+  
+  <nav class="navbar">
+    <a href="/" class="navbar-logo">
+      <img src="/logo.png" alt="AlphaFlowGridAI Logo">
+      <span>AlphaFlowGridAI</span>
+    </a>
+    <ul class="navbar-links">
+      <li><a href="/ai-tools/">AI Tools</a></li>
+      <li><a href="/saas/">SaaS</a></li>
+      <li><a href="/free-tools/">Free Tools</a></li>
+      <li><a href="/compare/">Compare</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/newsletter/">Newsletter</a></li>
+    </ul>
+    <input type="search" class="navbar-search" placeholder="Search tools...">
+  </nav>
+
+  
+  <main>
+<div style="background-color: #030712; color: #cbd5e1; min-height: 100vh; padding: 4rem 1rem; font-family: system-ui, -apple-system, sans-serif; width: 100%; box-sizing: border-box;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-flow: row wrap; gap: 2rem; width: 100%; box-sizing: border-box;">
+        
+        <nav style="flex: 1; min-width: 200px; max-width: 240px; position: sticky; top: 6rem; height: fit-content;">
+            <h4 style="color: #ffffff; font-size: 0.85rem; text-transform: uppercase; margin: 0 0 1.25rem 0;">On This Page</h4>
+            <div style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.9rem;">
+                <a href="#overview" style="color: #3b82f6; text-decoration: none;">Overview</a>
+            </div>
+        </nav>
+
+        <main style="flex: 3; min-width: 320px; background-color: #0b0f19; border: 1px solid #1f2937; border-radius: 12px; padding: 2.5rem; box-sizing: border-box;">
+            <div style="border-bottom: 1px solid #1f2937; padding-bottom: 1.75rem; margin-bottom: 2rem;">
+                <h1 style="color: #ffffff; font-size: 2.5rem; margin: 0 0 0.75rem 0;">ChatGPT</h1>
+            </div>
+            <div id="overview" style="line-height: 1.8; font-size: 1.05rem; color: #cbd5e1;">
+                <h2 id="what-is-chatgpt">What Is ChatGPT?</h2>
+<p>ChatGPT is an AI assistant built by OpenAI. It helps with writing, research, coding, brainstorming and everyday productivity tasks. It is the most widely used AI tool in the world with over 100 million users.</p>
+<hr>
+<h2 id="pricing-truth">Pricing Truth</h2>
+<table>
+	<thead>
+			<tr>
+					<th>Plan</th>
+					<th>Cost</th>
+					<th>What You Get</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Free</td>
+					<td>$0/month</td>
+					<td>GPT-4o limited daily use</td>
+			</tr>
+			<tr>
+					<td>Plus</td>
+					<td>$20/month</td>
+					<td>GPT-4o unlimited and plugins</td>
+			</tr>
+			<tr>
+					<td>Team</td>
+					<td>$25/user/month</td>
+					<td>Shared workspace</td>
+			</tr>
+			<tr>
+					<td>Enterprise</td>
+					<td>Custom</td>
+					<td>Advanced security</td>
+			</tr>
+	</tbody>
+</table>
+<p><strong>Hidden fees:</strong> None</p>
+<p><strong>Free tier quality:</strong> Good for basic daily use</p>
+<p><strong>Price changed recently:</strong> No</p>
+<hr>
+<h2 id="who-is-this-for">Who Is This For</h2>
+<p>✅ <strong>Perfect for:</strong> Writers, students, marketers, solopreneurs</p>
+<p>⚠️ <strong>Okay for:</strong> Developers — better coding tools exist</p>
+<p>❌ <strong>Not for:</strong> Privacy-sensitive work</p>
+<hr>
+<h2 id="honest-review">Honest Review</h2>
+<p>ChatGPT remains the most versatile AI assistant available today. The free tier is genuinely useful for everyday tasks — writing emails, summarising documents and brainstorming ideas.</p>
+<p>The jump to Plus at $20/month unlocks significantly better performance and is worth it for daily power users.</p>
+<hr>
+<h2 id="best-free-alternatives">Best Free Alternatives</h2>
+<table>
+	<thead>
+			<tr>
+					<th>Alternative</th>
+					<th>Why Choose It</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Claude Free</td>
+					<td>Better for long documents</td>
+			</tr>
+			<tr>
+					<td>Gemini Free</td>
+					<td>Better Google integration</td>
+			</tr>
+			<tr>
+					<td>Copilot Free</td>
+					<td>Better for Microsoft users</td>
+			</tr>
+	</tbody>
+</table>
+
+            </div>
+        </main>
+
+        <aside style="flex: 1.2; min-width: 290px; max-width: 360px;">
+            <div style="background-color: #0b0f19; border: 1px solid #1f2937; border-radius: 12px; padding: 1.75rem; position: sticky; top: 6rem; box-sizing: border-box; width: 100%;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.75rem;">
+                    <span style="color: #94a3b8; font-size: 0.9rem;">Pricing Model</span>
+                    <span style="background-color: #1e1b4b; color: #38bdf8; border: 1px solid #2e1065; padding: 0.35rem 0.85rem; border-radius: 9999px;">Freemium</span>
+                </div>
+                <div style="background-color: #030712; border: 1px solid #1f2937; border-radius: 8px; padding: 1.25rem; text-align: center; margin-bottom: 1.75rem;">
+                    <div style="font-size: 0.75rem; color: #6b7280; margin-bottom: 0.35rem;">RadarScore</div>
+                    <div style="font-size: 2.75rem; color: #00d2ff;">9.2<span style="font-size: 1.1rem; color: #4b5563;">/10</span></div>
+                </div>
+                <a href="https://openai.com/chatgpt" style="display: block; background-color: #2563eb; color: #ffffff; text-align: center; text-decoration: none; padding: 1rem; border-radius: 6px;">Visit Official Site</a>
+            </div>
+        </aside>
+
+    </div>
+</div>
+</main>
+
+  
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-col-title">AI Tools</div>
+        <a href="/ai-tools/">AI Writing</a>
+        <a href="/ai-tools/">AI Video</a>
+        <a href="/ai-tools/">AI Image</a>
+        <a href="/ai-tools/">AI Coding</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">SaaS</div>
+        <a href="/saas/">Project Mgmt</a>
+        <a href="/saas/">CRM Tools</a>
+        <a href="/saas/">Marketing</a>
+        <a href="/saas/">Analytics</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Compare</div>
+        <a href="/compare/">ChatGPT vs Claude</a>
+        <a href="/compare/">Notion vs ClickUp</a>
+        <a href="/compare/">Canva vs Figma</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/terms-of-service/">Terms of Service</a>
+        <a href="/disclaimer/">Disclaimer</a>
+</div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 AlphaFlowGridAI. All rights reserved.</span>
+      <div class="footer-socials">
+        <a href="https://pinterest.com/alphaflowgrid" target="_blank">📌</a>
+        <a href="https://instagram.com/alphaflowgridai" target="_blank">📷</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
