@@ -1,0 +1,119 @@
+- name: Healthcare
+  description: Diagnostics, imaging, patient care AI
+  iconBg: "#E1F5EE"
+  iconColor: "#0F6E56"
+  icon: ti-heart-rate-monitor
+  toolCount: 32
+  saasCount: 14
+  url: /industries/healthcare
+  isNew: false
+
+- name: Finance & Fintech
+  description: Trading bots, fraud detection, accounting
+  iconBg: "#FAEEDA"
+  iconColor: "#854F0B"
+  icon: ti-chart-line
+  toolCount: 41
+  saasCount: 22
+  url: /industries/finance
+  isNew: false
+
+- name: Education
+  description: Tutoring, LMS, content generation AI
+  iconBg: "#EEEDFE"
+  iconColor: "#534AB7"
+  icon: ti-school
+  toolCount: 28
+  saasCount: 18
+  url: /industries/education
+  isNew: false
+
+- name: Marketing
+  description: SEO, ad copy, email automation AI
+  iconBg: "#FAECE7"
+  iconColor: "#993C1D"
+  icon: ti-speakerphone
+  toolCount: 55
+  saasCount: 30
+  url: /industries/marketing
+  isNew: false
+
+- name: Legal
+  description: Contract review, research, drafting AI
+  iconBg: "#E6F1FB"
+  iconColor: "#185FA5"
+  icon: ti-gavel
+  toolCount: 19
+  saasCount: 11
+  url: /industries/legal
+  isNew: false
+
+- name: Real Estate
+  description: Valuation, lead gen, virtual tours AI
+  iconBg: "#FBEAF0"
+  iconColor: "#993556"
+  icon: ti-building-estate
+  toolCount: 23
+  saasCount: 15
+  url: /industries/real-estate
+  isNew: false
+
+- name: Content Creators
+  description: YouTube, TikTok, podcast, thumbnail AI
+  iconBg: "#FCEBEB"
+  iconColor: "#A32D2D"
+  icon: ti-player-play
+  toolCount: 47
+  saasCount: 26
+  url: /industries/content-creators
+  isNew: true
+
+- name: E-commerce & Retail
+  description: Product copy, pricing, inventory AI
+  iconBg: "#EAF3DE"
+  iconColor: "#3B6D11"
+  icon: ti-shopping-cart
+  toolCount: 38
+  saasCount: 20
+  url: /industries/ecommerce
+  isNew: true
+
+- name: HR & Recruitment
+  description: Resume screening, interview, onboarding
+  iconBg: "#EEEDFE"
+  iconColor: "#3C3489"
+  icon: ti-users
+  toolCount: 29
+  saasCount: 17
+  url: /industries/hr-recruitment
+  isNew: true
+
+- name: Gaming & Esports
+  description: Game dev, streaming, moderation AI
+  iconBg: "#FAEEDA"
+  iconColor: "#633806"
+  icon: ti-device-gamepad-2
+  toolCount: 33
+  saasCount: 16
+  url: /industries/gaming
+  isNew: true
+
+- name: Cybersecurity
+  description: Threat detection, compliance, scan AI
+  iconBg: "#E1F5EE"
+  iconColor: "#085041"
+  icon: ti-shield-lock
+  toolCount: 25
+  saasCount: 19
+  url: /industries/cybersecurity
+  isNew: true
+
+- name: Data & Analytics
+  description: BI tools, data cleaning, visualization
+  iconBg: "#E6F1FB"
+  iconColor: "#0C447C"
+  icon: ti-chart-dots
+  toolCount: 44
+  saasCount: 24
+  url: /industries/data-analytics
+  isNew: true

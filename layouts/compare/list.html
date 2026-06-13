@@ -1,51 +1,61 @@
 {{ define "main" }}
-<div class="custom-list-container" style="background-color: #030712; color: #ffffff; min-height: 100vh; padding: 3rem 1rem; font-family: system-ui, -apple-system, sans-serif;">
-  <div style="max-width: 1280px; margin: 0 auto;">
-    
-    <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 2.5rem; color: #ffffff; letter-spacing: -0.02em;">
-      {{ .Title }}
-    </h1>
+<div style="background:#050d1a; min-height:100vh; padding:40px 24px;">
+  <div style="max-width:1200px; margin:0 auto;">
 
-    <style>
-      /* Targets the card containers */
-      .list-content-wrapper .hextra-cards, 
-      .list-content-wrapper div[class*="grid"] {
-        gap: 1.5rem !important;
-      }
-      
-      /* Transforms each individual card to your custom theme colors */
-      .list-content-wrapper a[href*="/ai-tools/"] {
-        background-color: #060b18 !important;
-        border: 1px solid #111e38 !important;
-        border-radius: 0.75rem !important;
-        padding: 1.5rem !important;
-        transition: all 0.2s ease-in-out !important;
-      }
+    <!-- Page Header -->
+    <div style="margin-bottom:32px;">
+      <div style="font-size:13px; color:#7ca4cc; margin-bottom:12px;">
+        <a href="/" style="color:#7ca4cc; text-decoration:none;">Home</a>
+        <span style="margin:0 6px;">›</span>
+        <span style="color:#00ccff;">{{ .Title }}</span>
+      </div>
+      <h1 style="font-size:28px; font-weight:700; color:#ffffff; margin-bottom:8px;">{{ .Title }}</h1>
+      <p style="font-size:14px; color:#7ca4cc;">{{ .Description }}</p>
+    </div>
 
-      /* Hover glow effect */
-      .list-content-wrapper a[href*="/ai-tools/"]:hover {
-        border-color: #1d4ed8 !important;
-        box-shadow: 0 0 15px rgba(29, 78, 216, 0.2) !important;
-        background-color: #081022 !important;
-      }
+    <!-- Compare Cards Grid -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(340px, 1fr)); gap:16px;">
+      {{ range .Pages }}
+      <a href="{{ .Permalink }}" style="text-decoration:none; display:block; background:#0a1a2e; border:0.5px solid #1a3a5c; border-radius:12px; padding:24px; transition:border-color 0.2s;"
+         onmouseover="this.style.borderColor='#00ccff'"
+         onmouseout="this.style.borderColor='#1a3a5c'">
 
-      /* Forces text colors inside cards to match your mockup */
-      .list-content-wrapper a[href*="/ai-tools/"] title,
-      .list-content-wrapper a[href*="/ai-tools/"] div,
-      .list-content-wrapper a[href*="/ai-tools/"] span {
-        color: #ffffff !important;
-      }
+        <!-- VS Header -->
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
 
-      .list-content-wrapper a[href*="/ai-tools/"] p,
-      .list-content-wrapper a[href*="/ai-tools/"] subtitle {
-        color: #94a3b8 !important;
-      }
-    </style>
+          <!-- Tool A -->
+          <div style="flex:1; background:#0d2137; border-radius:8px; padding:10px 14px; text-align:center;">
+            <div style="font-size:14px; font-weight:700; color:#ffffff;">{{ .Params.tool_a | default "Tool A" }}</div>
+          </div>
 
-    <div class="list-content-wrapper">
-      {{ .Content }}
+          <!-- VS Badge -->
+          <div style="background:#0066ff; border-radius:6px; padding:4px 8px; font-size:11px; font-weight:700; color:#ffffff; flex-shrink:0;">VS</div>
+
+          <!-- Tool B -->
+          <div style="flex:1; background:#0d2137; border-radius:8px; padding:10px 14px; text-align:center;">
+            <div style="font-size:14px; font-weight:700; color:#ffffff;">{{ .Params.tool_b | default "Tool B" }}</div>
+          </div>
+
+        </div>
+
+        <!-- Title -->
+        <h2 style="font-size:15px; font-weight:600; color:#ffffff; margin-bottom:8px;">{{ .Title }}</h2>
+
+        <!-- Description -->
+        <p style="font-size:13px; color:#7ca4cc; line-height:1.6; margin-bottom:16px;">{{ .Description }}</p>
+
+        <!-- Meta -->
+        <div style="display:flex; align-items:center; justify-content:space-between;">
+          <span style="font-size:11px; color:#7ca4cc;">{{ .Date.Format "Jan 2, 2006" }}</span>
+          <div style="font-size:13px; color:#0066ff; font-weight:600;">See Comparison →</div>
+        </div>
+
+      </a>
+      {{ else }}
+      <p style="color:#7ca4cc; font-size:14px;">No comparisons yet. Check back soon.</p>
+      {{ end }}
     </div>
 
   </div>
 </div>
-{{ end }} 
+{{ end }}

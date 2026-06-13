@@ -1,0 +1,14 @@
+{{- $.Scratch.Add "index" slice -}}
+{{- range where .Site.RegularPages "Section" "in" (slice "ai-tools" "saas" "blog" "compare" "free-tools") -}}
+{{- $.Scratch.Add "index" (dict
+  "title" .Title
+  "description" .Params.description
+  "pricing" .Params.pricing
+  "score" .Params.score
+  "free_tier" .Params.free_tier
+  "permalink" .Permalink
+  "section" .Section
+  "content" (.Plain | truncate 150)
+) -}}
+{{- end -}}
+{{- $.Scratch.Get "index" | jsonify -}}

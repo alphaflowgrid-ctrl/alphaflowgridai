@@ -3,57 +3,55 @@ title: "ChatGPT"
 date: 2026-06-11
 description: "Best all-round AI assistant by OpenAI for writing, analysis and everyday productivity."
 pricing: "Freemium"
-score: "9.2"
+score: "92"
 free_tier: "Yes"
 affiliate_link: "https://openai.com/chatgpt"
 draft: false
+tags: ["Free tier", "AI Assistant", "Writing", "Productivity"]
+
+radar:
+  value: 9
+  ease: 10
+  quality: 9
+  free_tier_quality: 8
+  support: 7
+
+pricing_table:
+  - plan: "Free tier"
+    cost: "$0/month"
+    note: "limited daily use"
+  - plan: "Plus"
+    cost: "$20/month"
+    note: ""
+  - plan: "Team"
+    cost: "$25/user/month"
+    note: ""
+  - plan: "Hidden fees"
+    cost: "None"
+    note: ""
+  - plan: "Price changed recently"
+    cost: "No"
+    note: ""
+
+who_for:
+  perfect:
+    - "Writers, students, marketers, solopreneurs"
+  okay:
+    - "Developers — better coding tools exist"
+  not_for:
+    - "Privacy-sensitive work or real-time data needs"
+
+alternatives:
+  - name: "Claude"
+    note: "Better for writing"
+    url: "/ai-tools/claude/"
+  - name: "Gemini"
+    note: "Free — Google suite"
+    url: "/ai-tools/gemini/"
 ---
 
 ## What Is ChatGPT?
-
 ChatGPT is an AI assistant built by OpenAI. It helps with writing, research, coding, brainstorming and everyday productivity tasks. It is the most widely used AI tool in the world with over 100 million users.
 
----
-
-## Pricing Truth
-
-| Plan | Cost | What You Get |
-|------|------|--------------|
-| Free | $0/month | GPT-4o limited daily use |
-| Plus | $20/month | GPT-4o unlimited and plugins |
-| Team | $25/user/month | Shared workspace |
-| Enterprise | Custom | Advanced security |
-
-**Hidden fees:** None
-
-**Free tier quality:** Good for basic daily use
-
-**Price changed recently:** No
-
----
-
-## Who Is This For
-
-✅ **Perfect for:** Writers, students, marketers, solopreneurs
-
-⚠️ **Okay for:** Developers — better coding tools exist
-
-❌ **Not for:** Privacy-sensitive work
-
----
-
 ## Honest Review
-
-ChatGPT remains the most versatile AI assistant available today. The free tier is genuinely useful for everyday tasks — writing emails, summarising documents and brainstorming ideas.
-
-The jump to Plus at $20/month unlocks significantly better performance and is worth it for daily power users.
-
----
-
-## Best Free Alternatives
-
-| Alternative | Why Choose It |
-|-------------|---------------|
-| Claude Free | Better for long documents |
-| Gemini Free | Better Google integration |
-| Copilot Free | Better for Microsoft users |
+ChatGPT remains the most versatile AI assistant available today. The free tier is genuinely useful for everyday tasks — writing emails, summarising documents and brainstorming ideas. The jump to Plus at $20/month unlocks significantly better performance and is worth it for daily power users.

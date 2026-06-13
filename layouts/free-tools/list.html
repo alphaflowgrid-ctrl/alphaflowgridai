@@ -1,51 +1,62 @@
 {{ define "main" }}
-<div class="custom-list-container" style="background-color: #030712; color: #ffffff; min-height: 100vh; padding: 3rem 1rem; font-family: system-ui, -apple-system, sans-serif;">
-  <div style="max-width: 1280px; margin: 0 auto;">
-    
-    <h1 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 2.5rem; color: #ffffff; letter-spacing: -0.02em;">
-      {{ .Title }}
-    </h1>
+<div style="background:#050d1a; min-height:100vh; padding:40px 24px;">
+  <div style="max-width:1200px; margin:0 auto;">
 
-    <style>
-      /* Targets the card containers */
-      .list-content-wrapper .hextra-cards, 
-      .list-content-wrapper div[class*="grid"] {
-        gap: 1.5rem !important;
-      }
-      
-      /* Transforms each individual card to your custom theme colors */
-      .list-content-wrapper a[href*="/ai-tools/"] {
-        background-color: #060b18 !important;
-        border: 1px solid #111e38 !important;
-        border-radius: 0.75rem !important;
-        padding: 1.5rem !important;
-        transition: all 0.2s ease-in-out !important;
-      }
+    <!-- Page Header -->
+    <div style="margin-bottom:32px;">
+      <div style="font-size:13px; color:#7ca4cc; margin-bottom:12px;">
+        <a href="/" style="color:#7ca4cc; text-decoration:none;">Home</a>
+        <span style="margin:0 6px;">›</span>
+        <span style="color:#00ccff;">{{ .Title }}</span>
+      </div>
+      <h1 style="font-size:28px; font-weight:700; color:#ffffff; margin-bottom:8px;">{{ .Title }}</h1>
+      <p style="font-size:14px; color:#7ca4cc;">{{ .Description }}</p>
+    </div>
 
-      /* Hover glow effect */
-      .list-content-wrapper a[href*="/ai-tools/"]:hover {
-        border-color: #1d4ed8 !important;
-        box-shadow: 0 0 15px rgba(29, 78, 216, 0.2) !important;
-        background-color: #081022 !important;
-      }
+    <!-- Tool Cards Grid -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:16px;">
+      {{ range .Pages }}
+      <a href="{{ .Permalink }}" style="text-decoration:none; display:block; background:#0a1a2e; border:0.5px solid #1a3a5c; border-radius:12px; padding:20px; transition:border-color 0.2s;"
+         onmouseover="this.style.borderColor='#00ccff'"
+         onmouseout="this.style.borderColor='#1a3a5c'">
 
-      /* Forces text colors inside cards to match your mockup */
-      .list-content-wrapper a[href*="/ai-tools/"] title,
-      .list-content-wrapper a[href*="/ai-tools/"] div,
-      .list-content-wrapper a[href*="/ai-tools/"] span {
-        color: #ffffff !important;
-      }
+        <!-- Card Header -->
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+          <div style="width:40px; height:40px; border-radius:8px; background:#0f6e56; display:flex; align-items:center; justify-content:center; font-size:14px; color:#fff; font-weight:700; flex-shrink:0;">
+            {{ substr .Title 0 2 | upper }}
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:15px; font-weight:600; color:#ffffff;">{{ .Title }}</div>
+            <div style="font-size:11px; color:#1d9e75; margin-top:2px;">Free Tool</div>
+          </div>
+          {{ if .Params.score }}
+          <div style="background:#042c53; border:0.5px solid #0066ff; border-radius:6px; padding:4px 8px; text-align:center; flex-shrink:0;">
+            <div style="font-size:13px; font-weight:700; color:#00ccff;">{{ .Params.score }}</div>
+            <div style="font-size:9px; color:#7ca4cc;">RadarScore</div>
+          </div>
+          {{ end }}
+        </div>
 
-      .list-content-wrapper a[href*="/ai-tools/"] p,
-      .list-content-wrapper a[href*="/ai-tools/"] subtitle {
-        color: #94a3b8 !important;
-      }
-    </style>
+        <!-- Description -->
+        <p style="font-size:13px; color:#7ca4cc; line-height:1.6; margin-bottom:12px;">{{ .Description }}</p>
 
-    <div class="list-content-wrapper">
-      {{ .Content }}
+        <!-- Tags -->
+        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+          <span style="background:#070f1e; border:0.5px solid #0f6e56; border-radius:4px; padding:2px 8px; font-size:11px; color:#1d9e75;">Free</span>
+          {{ range first 2 .Params.tags }}
+          <span style="background:#070f1e; border:0.5px solid #1a3a5c; border-radius:4px; padding:2px 8px; font-size:11px; color:#7ca4cc;">{{ . }}</span>
+          {{ end }}
+        </div>
+
+        <!-- CTA -->
+        <div style="font-size:13px; color:#0066ff; font-weight:600;">Read Review →</div>
+
+      </a>
+      {{ else }}
+      <p style="color:#7ca4cc; font-size:14px;">No free tools listed yet. Check back soon.</p>
+      {{ end }}
     </div>
 
   </div>
 </div>
-{{ end }} 
+{{ end }}

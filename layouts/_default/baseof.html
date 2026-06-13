@@ -8,7 +8,7 @@
   <link rel="icon" href="/logo.png">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    
+
     body {
       background-color: #050d1a;
       color: #ffffff;
@@ -79,6 +79,74 @@
 
     .navbar-search:focus {
       border-color: #00ccff;
+    }
+
+    /* Search wrapper for dropdown positioning */
+    .search-wrapper {
+      position: relative;
+    }
+
+    /* Dropdown shared styles */
+    .search-dropdown {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      width: 320px;
+      background: #0a1a2e;
+      border: 0.5px solid #1a3a5c;
+      border-radius: 8px;
+      z-index: 999;
+      display: none;
+      max-height: 360px;
+      overflow-y: auto;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    .search-dropdown.active {
+      display: block;
+    }
+
+    .search-dropdown-item {
+      display: block;
+      padding: 10px 14px;
+      border-bottom: 0.5px solid #1a3a5c;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .search-dropdown-item:last-child {
+      border-bottom: none;
+    }
+
+    .search-dropdown-item:hover {
+      background: #0d2137;
+    }
+
+    .search-dropdown-item .item-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+
+    .search-dropdown-item .item-desc {
+      font-size: 11px;
+      color: #7ca4cc;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .search-dropdown-item .item-meta {
+      font-size: 10px;
+      color: #00ccff;
+      margin-top: 2px;
+    }
+
+    .search-no-results {
+      padding: 12px 14px;
+      font-size: 13px;
+      color: #7ca4cc;
     }
 
     /* Main content */
@@ -209,7 +277,10 @@
       <li><a href="/blog/">Blog</a></li>
       <li><a href="/newsletter/">Newsletter</a></li>
     </ul>
-    <input type="search" class="navbar-search" placeholder="Search tools...">
+    <div class="search-wrapper">
+      <input type="search" id="navbar-search" class="navbar-search" placeholder="Search tools..." autocomplete="off">
+      <div id="navbar-dropdown" class="search-dropdown"></div>
+    </div>
   </nav>
 
   <!-- Main Content -->
@@ -229,7 +300,7 @@
       </div>
       <div class="footer-col">
         <div class="footer-col-title">SaaS</div>
-        <a href="/saas/">Project Mgmt</a>
+        <a href="/saas/">Project Management</a>
         <a href="/saas/">CRM Tools</a>
         <a href="/saas/">Marketing</a>
         <a href="/saas/">Analytics</a>
@@ -247,7 +318,7 @@
         <a href="/privacy-policy/">Privacy Policy</a>
         <a href="/terms-of-service/">Terms of Service</a>
         <a href="/disclaimer/">Disclaimer</a>
-</div>
+      </div>
     </div>
     <div class="footer-bottom">
       <span class="footer-copy">© 2026 AlphaFlowGridAI. All rights reserved.</span>
@@ -257,6 +328,76 @@
       </div>
     </div>
   </footer>
+
+  <!-- Fuse.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
+
+  <!-- Search Logic -->
+  <script>
+    let fuseInstance = null;
+
+    async function loadSearchIndex() {
+      if (fuseInstance) return fuseInstance;
+      const res = await fetch('/index.json');
+      const data = await res.json();
+      fuseInstance = new Fuse(data, {
+        keys: ['title', 'description', 'content'],
+        threshold: 0.35,
+        minMatchCharLength: 2
+      });
+      return fuseInstance;
+    }
+
+    function renderDropdown(results, dropdownEl) {
+      dropdownEl.innerHTML = '';
+      if (results.length === 0) {
+        dropdownEl.innerHTML = '<div class="search-no-results">No results found.</div>';
+        dropdownEl.classList.add('active');
+        return;
+      }
+      results.slice(0, 6).forEach(r => {
+        const item = r.item;
+        const a = document.createElement('a');
+        a.href = item.permalink;
+        a.className = 'search-dropdown-item';
+        a.innerHTML = `
+          <div class="item-title">${item.title}</div>
+          <div class="item-desc">${item.description || ''}</div>
+          <div class="item-meta">${item.pricing || ''} ${item.score ? '· Score: ' + item.score : ''}</div>
+        `;
+        dropdownEl.appendChild(a);
+      });
+      dropdownEl.classList.add('active');
+    }
+
+    function initSearch(inputId, dropdownId) {
+      const input = document.getElementById(inputId);
+      const dropdown = document.getElementById(dropdownId);
+      if (!input || !dropdown) return;
+
+      input.addEventListener('input', async function () {
+        const query = this.value.trim();
+        if (query.length < 2) {
+          dropdown.classList.remove('active');
+          return;
+        }
+        const fuse = await loadSearchIndex();
+        const results = fuse.search(query);
+        renderDropdown(results, dropdown);
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+          dropdown.classList.remove('active');
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      initSearch('navbar-search', 'navbar-dropdown');
+      initSearch('hero-search', 'hero-dropdown');
+    });
+  </script>
 
 </body>
 </html>

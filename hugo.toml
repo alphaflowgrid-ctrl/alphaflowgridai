@@ -45,3 +45,12 @@ enableRobotsTXT = true
   name = "Newsletter"
   url = "/newsletter/"
   weight = 6
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[outputs]
+  home = ["HTML", "JSON"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
