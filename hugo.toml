@@ -1,8 +1,17 @@
-baseURL = 'https://alphaflowgridai.pages.dev/'
+baseURL = 'https://alphaflowgridai.com/'
 defaultContentLanguage = 'en'
 title = 'AlphaFlowGridAI'
 
 enableRobotsTXT = true
+canonifyURLs = false
+
+[pagination]
+  pagerSize = 24
+
+[sitemap]
+  changefreq = 'weekly'
+  filename = 'sitemap.xml'
+  priority = 0.5
 
 [params]
   description = "Smart Tools. Better Productivity. Your ultimate directory for AI Tools and SaaS products."
@@ -15,6 +24,16 @@ enableRobotsTXT = true
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+  [markup.highlight]
+    noClasses = false
+
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
 
 [[menu.main]]
   name = "AI Tools"
@@ -55,4 +74,4 @@ enableRobotsTXT = true
   taxonomy = ["HTML"]
   term = ["HTML"]
 
-  # Deployment pipeline verified June 2026
+# Deployment pipeline verified June 2026
