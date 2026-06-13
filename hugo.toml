@@ -54,3 +54,5 @@ enableRobotsTXT = true
   home = ["HTML", "JSON"]
   taxonomy = ["HTML"]
   term = ["HTML"]
+
+  # Deployment pipeline verified June 2026
