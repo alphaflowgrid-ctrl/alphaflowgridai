@@ -1,9 +1,10 @@
 ---
 title: "Notion"
 date: 2026-06-14
-description: "All-in-one workspace for notes, projects, wikis and databases — now with built-in AI assistance."
+lastmod: 2026-06-16
+description: "All-in-one workspace for notes, projects, wikis and databases — with AI on Business and Enterprise plans."
 pricing: "Freemium"
-score: "90"
+score: "86"
 free_tier: "Yes"
 affiliate_link: "https://notion.so"
 draft: false
@@ -17,22 +18,22 @@ radar:
 pricing_table:
   - plan: "Free"
     cost: "$0/month"
-    note: "Unlimited pages, limited AI responses"
-  - plan: "Plus + AI"
-    cost: "$16/month"
-    note: "Unlimited AI, unlimited file uploads"
-  - plan: "Business + AI"
-    cost: "$25/seat/month"
-    note: "Advanced permissions, team analytics"
+    note: "Unlimited pages (individual); AI = 20-response trial"
+  - plan: "Plus"
+    cost: "$12/month"
+    note: "$10/mo annual; unlimited blocks/uploads; no full AI"
+  - plan: "Business"
+    cost: "$24/month"
+    note: "$20/mo annual; full Notion AI, SAML SSO"
   - plan: "Enterprise"
     cost: "Custom"
-    note: "SAML SSO, audit logs"
+    note: "SCIM, audit logs, advanced security"
   - plan: "Hidden fees"
     cost: "None"
-    note: ""
+    note: "full AI only on Business+; add-on discontinued 2025"
   - plan: "Price changed recently"
-    cost: "Yes — AI now bundled into paid plans"
-    note: ""
+    cost: "Yes"
+    note: "AI bundled into Business+; standalone AI add-on ended May 2025"
 who_for:
   perfect:
     - "Solopreneurs, teams, project managers, students"
@@ -41,15 +42,35 @@ who_for:
   not_for:
     - "Users who need dedicated project management like Jira"
 alternatives:
+  - name: "Otter.ai"
+    note: "Better for meeting notes & transcription"
+    url: "/ai-tools/otter-ai/"
   - name: "ClickUp"
     note: "Better for large team project management"
-    url: "/saas/clickup/"
-  - name: "Obsidian"
-    note: "Better for personal knowledge management"
-    url: "/saas/obsidian/"
+    url: "/compare/notion-vs-clickup/"
+last_verified: 2026-06-16
+sources:
+  - label: "Notion — official pricing"
+    url: "https://www.notion.com/pricing"
+  - label: "Notion Pricing 2026 (Costbench)"
+    url: "https://costbench.com/software/project-management/notion/"
 ---
+
 ## What Is Notion?
-Notion is an all-in-one workspace combining notes, databases, wikis, project management, and AI assistance in a single tool. It is used by individuals, startups, and enterprises to organise knowledge and manage projects. In 2026 Notion bundled AI into all paid plans — making it one of the most complete productivity platforms available.
+
+Notion is an all-in-one workspace combining notes, databases, wikis, project management, and AI assistance in a single tool. It is used by individuals, startups, and enterprises to organise knowledge and manage projects.
 
 ## Honest Review
-Notion is one of the most versatile productivity tools available in 2026. The free tier is genuinely generous — unlimited pages and blocks for personal use. Plus at $16/month with AI included is excellent value for solopreneurs and small teams. The learning curve is real — Notion rewards users who invest time in setting it up properly. For teams needing structured project management, ClickUp may be a better fit. For individuals, Notion is hard to beat.
+
+Notion is one of the most versatile productivity tools available in 2026. The free tier is genuinely generous — unlimited pages and blocks for personal use, though it only includes a limited AI trial. **Plus at $12/month ($10 annual)** is excellent value for solopreneurs and small teams for unlimited blocks and uploads — but note that **full Notion AI is no longer available on Plus**: since the standalone AI add-on was discontinued in May 2025, unlimited AI is bundled only into **Business ($24/mo, $20 annual)** and Enterprise. The learning curve is real — Notion rewards users who invest time setting it up properly. For teams needing structured project management, ClickUp may be a better fit; for individuals, Notion is hard to beat.
+
+---
+
+### Sources & Verification
+
+*RadarScore calculated per our [methodology](/methodology/). Pricing last verified **16 June 2026** against:*
+
+- [Notion — official pricing](https://www.notion.com/pricing)
+- [Notion Pricing 2026 — Costbench](https://costbench.com/software/project-management/notion/)
+
+*No paid placement. We may earn an affiliate commission at no cost to you — it does not affect our score.*

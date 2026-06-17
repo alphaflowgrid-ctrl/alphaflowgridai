@@ -253,10 +253,23 @@
     .content strong { color: #ffffff; }
     .content hr { border: none; border-top: 1px solid #1a3a5c; margin: 24px 0; }
 
+/* Two-column grid with mobile fallback */
+.tool-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 24px;
+  align-items: start;
+}
+.tool-sidebar {
+  position: sticky;
+  top: 80px;
+}
     /* Mobile */
     @media (max-width: 768px) {
       .navbar-links { display: none; }
       .navbar-search { width: 140px; }
+      .tool-grid { grid-template-columns: 1fr; }
+      .tool-sidebar { position: static; }
     }
   </style>
   {{ partial "head-end.html" . }}

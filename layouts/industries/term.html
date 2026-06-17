@@ -1,0 +1,76 @@
+{{ define "main" }}
+
+<div style="background:#050d1a; min-height:100vh; padding:40px 24px;">
+  <div style="max-width:1200px; margin:0 auto;">
+
+    <div style="margin-bottom:32px;">
+      <div style="font-size:13px; color:#7ca4cc; margin-bottom:12px;">
+        <a href="/" style="color:#7ca4cc; text-decoration:none;">Home</a>
+        <span style="margin:0 6px;">›</span>
+        <a href="/industries/" style="color:#7ca4cc; text-decoration:none;">Industries</a>
+        <span style="margin:0 6px;">›</span>
+        <span style="color:#00ccff;">{{ .Title }}</span>
+      </div>
+
+      <h1 style="font-size:28px; font-weight:700; color:#ffffff; margin-bottom:8px;">{{ .Title }}</h1>
+
+      {{ with .Params.description }}
+        <p style="font-size:14px; color:#7ca4cc;">{{ . }}</p>
+      {{ else }}
+        <p style="font-size:14px; color:#7ca4cc;">Browse tools in {{ .Title }}.</p>
+      {{ end }}
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:16px;">
+      {{ $shown := 0 }}
+      {{ range .Pages }}
+        {{ if or (eq .Section "ai-tools") (eq .Section "saas") (eq .Section "free-tools") }}
+          {{ $shown = add $shown 1 }}
+          <a href="{{ .Permalink }}" style="text-decoration:none; display:block; background:#0a1a2e; border:0.5px solid #1a3a5c; border-radius:12px; padding:20px; transition:border-color 0.2s;"
+             onmouseover="this.style.borderColor='#00ccff'"
+             onmouseout="this.style.borderColor='#1a3a5c'">
+
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+              <div style="width:40px; height:40px; border-radius:8px; background:#0066ff; display:flex; align-items:center; justify-content:center; font-size:14px; color:#fff; font-weight:700; flex-shrink:0;">
+                {{ substr .Title 0 2 | upper }}
+              </div>
+
+              <div style="flex:1;">
+                <div style="font-size:15px; font-weight:600; color:#ffffff;">{{ .Title }}</div>
+                <div style="font-size:11px; color:#7ca4cc; margin-top:2px;">{{ .Params.pricing | default "Freemium" }}</div>
+              </div>
+
+              {{ if .Params.score }}
+                <div style="background:#042c53; border:0.5px solid #0066ff; border-radius:6px; padding:4px 8px; text-align:center; flex-shrink:0;">
+                  <div style="font-size:13px; font-weight:700; color:#00ccff;">{{ .Params.score }}</div>
+                  <div style="font-size:9px; color:#7ca4cc;">RadarScore</div>
+                </div>
+              {{ end }}
+            </div>
+
+            <p style="font-size:13px; color:#7ca4cc; line-height:1.6; margin-bottom:12px;">{{ .Description }}</p>
+
+            <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px;">
+              {{ if eq .Params.free_tier "Yes" }}
+                <span style="background:#070f1e; border:0.5px solid #0f6e56; border-radius:4px; padding:2px 8px; font-size:11px; color:#1d9e75;">Free tier</span>
+              {{ end }}
+
+              {{ range first 2 (default (slice) .Params.tags) }}
+                <span style="background:#070f1e; border:0.5px solid #1a3a5c; border-radius:4px; padding:2px 8px; font-size:11px; color:#7ca4cc;">{{ . | htmlUnescape }}</span>
+              {{ end }}
+            </div>
+
+            <div style="font-size:13px; color:#0066ff; font-weight:600;">Read Review →</div>
+          </a>
+        {{ end }}
+      {{ end }}
+
+      {{ if eq $shown 0 }}
+        <p style="color:#7ca4cc; font-size:14px;">No tools listed yet. Check back soon.</p>
+      {{ end }}
+    </div>
+
+  </div>
+</div>
+
+{{ end }}

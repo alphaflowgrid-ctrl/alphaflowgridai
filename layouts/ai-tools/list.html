@@ -45,7 +45,7 @@
           {{ if eq .Params.free_tier "Yes" }}
           <span style="background:#070f1e; border:0.5px solid #0f6e56; border-radius:4px; padding:2px 8px; font-size:11px; color:#1d9e75;">Free tier</span>
           {{ end }}
-          {{ range first 2 .Params.tags }}
+          {{ range first 2 (.Params.tags | default slice) }}
           <span style="background:#070f1e; border:0.5px solid #1a3a5c; border-radius:4px; padding:2px 8px; font-size:11px; color:#7ca4cc;">{{ . }}</span>
           {{ end }}
         </div>

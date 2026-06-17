@@ -1,0 +1,40 @@
+{{ define "main" }}
+
+<div style="background:#050d1a; min-height:100vh; padding:40px 24px;">
+  <div style="max-width:1200px; margin:0 auto;">
+
+    <div style="margin-bottom:32px;">
+      <div style="font-size:13px; color:#7ca4cc; margin-bottom:12px;">
+        <a href="/" style="color:#7ca4cc; text-decoration:none;">Home</a>
+        <span style="margin:0 6px;">›</span>
+        <span style="color:#00ccff;">Industries</span>
+      </div>
+
+      <h1 style="font-size:28px; font-weight:700; color:#ffffff; margin-bottom:8px;">{{ .Title }}</h1>
+      <p style="font-size:14px; color:#7ca4cc;">{{ .Description | default "Browse AI tools by industry." }}</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:16px;">
+      {{ range hugo.Data.industries }}
+        <a href="{{ .url }}"
+           style="text-decoration:none; display:block; background:#0a1a2e; border:0.5px solid #1a3a5c; border-radius:12px; padding:18px 16px; transition:border-color 0.2s;"
+           onmouseover="this.style.borderColor='#00ccff'"
+           onmouseout="this.style.borderColor='#1a3a5c'">
+
+          <div style="font-size:18px; font-weight:600; color:#ffffff; margin-bottom:8px;">
+            {{ .name | htmlUnescape }}
+          </div>
+
+          <div style="font-size:13px; color:#7ca4cc; line-height:1.5;">
+            {{ .description | htmlUnescape }}
+          </div>
+        </a>
+      {{ else }}
+        <p style="color:#7ca4cc; font-size:14px;">No industries listed yet.</p>
+      {{ end }}
+    </div>
+
+  </div>
+</div>
+
+{{ end }}

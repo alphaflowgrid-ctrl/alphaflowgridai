@@ -68,6 +68,7 @@ canonifyURLs = false
 [taxonomies]
   category = "categories"
   tag = "tags"
+  industry = "industries"
 
 [outputs]
   home = ["HTML", "JSON"]
