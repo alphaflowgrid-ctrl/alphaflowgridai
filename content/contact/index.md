@@ -26,6 +26,8 @@ We would love to hear from you. Whether you want to suggest a tool, enquire abou
 ## Get In Touch
 
 📧 **Email:** contact@alphaflowgridai.com
+📧 **Email:** node@alphaflowgridai.com
+📧 **Email:** nexus@alphaflowgridai.com
 
 📌 **Pinterest:** [pinterest.com/alphaflowgrid](https://pinterest.com/alphaflowgrid)
 
