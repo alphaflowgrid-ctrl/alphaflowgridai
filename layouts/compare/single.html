@@ -1,12 +1,19 @@
 {{ define "main" }}
+
 <div style="background:#050d1a; min-height:100vh; padding:40px 24px;">
   <div style="max-width:1200px; margin:0 auto;">
 
     <!-- Breadcrumb -->
-    <div style="font-size:13px; color:#7ca4cc; margin-bottom:20px;">
-      <a href="/" style="color:#7ca4cc; text-decoration:none;">Home</a>
+    <div style="font-size:13px; color:#7ca4cc; margin-bottom:20px;" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item" style="color:#7ca4cc; text-decoration:none;"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1" />
+      </span>
       <span style="margin:0 6px;">›</span>
-      <a href="/compare/" style="color:#7ca4cc; text-decoration:none;">Compare</a>
+      <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/compare/" itemprop="item" style="color:#7ca4cc; text-decoration:none;"><span itemprop="name">Compare</span></a>
+        <meta itemprop="position" content="2" />
+      </span>
       <span style="margin:0 6px;">›</span>
       <span style="color:#00ccff;">{{ .Title }}</span>
     </div>
@@ -38,9 +45,19 @@
       <!-- Tool A -->
       <div style="background:#0a1a2e; border:0.5px solid #1a3a5c; border-radius:12px; padding:20px;">
         <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
-          <div style="width:44px; height:44px; border-radius:10px; background:#0066ff; display:flex; align-items:center; justify-content:center; font-size:16px; color:#fff; font-weight:700; flex-shrink:0;">
-            {{ substr .name 0 2 | upper }}
+          
+          <!-- SMART LOGO TOOL A -->
+          <div style="width:44px; height:44px; border-radius:10px; background:#ffffff; border:0.5px solid #1a3a5c; display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden;">
+            {{ $logoSourceA := .website | default .affiliate_link }}
+            {{ if $logoSourceA }}
+              {{ $domainA := (urls.Parse $logoSourceA).Host }}
+              <img src="https://www.google.com/s2/favicons?domain={{ $domainA }}&sz=128" alt="{{ .name }} Logo" style="width:100%; height:100%; object-fit:contain; padding:8px;" onerror="this.parentElement.style.background='#0066ff'; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div style="display:none; width:100%; height:100%; align-items:center; justify-content:center; font-size:16px; color:#fff; font-weight:700; background:#0066ff;">{{ substr .name 0 2 | upper }}</div>
+            {{ else }}
+              <div style="width:100%; height:100%; background:#0066ff; display:flex; align-items:center; justify-content:center; font-size:16px; color:#fff; font-weight:700;">{{ substr .name 0 2 | upper }}</div>
+            {{ end }}
           </div>
+
           <div>
             <div style="font-size:16px; font-weight:700; color:#ffffff;">{{ .name }}</div>
             <div style="font-size:12px; color:#7ca4cc;">{{ .tagline }}</div>
@@ -74,9 +91,19 @@
       <!-- Tool B -->
       <div style="background:#0a1a2e; border:0.5px solid #1a3a5c; border-radius:12px; padding:20px;">
         <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
-          <div style="width:44px; height:44px; border-radius:10px; background:#533ab7; display:flex; align-items:center; justify-content:center; font-size:16px; color:#fff; font-weight:700; flex-shrink:0;">
-            {{ substr .name 0 2 | upper }}
+          
+          <!-- SMART LOGO TOOL B -->
+          <div style="width:44px; height:44px; border-radius:10px; background:#ffffff; border:0.5px solid #1a3a5c; display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden;">
+            {{ $logoSourceB := .website | default .affiliate_link }}
+            {{ if $logoSourceB }}
+              {{ $domainB := (urls.Parse $logoSourceB).Host }}
+              <img src="https://www.google.com/s2/favicons?domain={{ $domainB }}&sz=128" alt="{{ .name }} Logo" style="width:100%; height:100%; object-fit:contain; padding:8px;" onerror="this.parentElement.style.background='#533ab7'; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div style="display:none; width:100%; height:100%; align-items:center; justify-content:center; font-size:16px; color:#fff; font-weight:700; background:#533ab7;">{{ substr .name 0 2 | upper }}</div>
+            {{ else }}
+              <div style="width:100%; height:100%; background:#533ab7; display:flex; align-items:center; justify-content:center; font-size:16px; color:#fff; font-weight:700;">{{ substr .name 0 2 | upper }}</div>
+            {{ end }}
           </div>
+
           <div>
             <div style="font-size:16px; font-weight:700; color:#ffffff;">{{ .name }}</div>
             <div style="font-size:12px; color:#7ca4cc;">{{ .tagline }}</div>
@@ -113,8 +140,6 @@
 
       <!-- Left Column - Main Content -->
       <div>
-
-        <!-- Detailed Comparison -->
         {{ with .Params.comparison }}
         <div style="background:#0a1a2e; border:0.5px solid #1a3a5c; border-radius:12px; padding:24px; margin-bottom:24px;">
           <div style="font-size:15px; font-weight:600; color:#ffffff; margin-bottom:16px;">Detailed Comparison</div>
@@ -130,17 +155,13 @@
         </div>
         {{ end }}
 
-        <!-- Main Content -->
         <div class="content" style="background:#0a1a2e; border:0.5px solid #1a3a5c; border-radius:12px; padding:24px;">
           {{ .Content }}
         </div>
-
       </div>
 
       <!-- Right Sidebar -->
       <div style="position:sticky; top:80px;">
-
-        <!-- Our Pick -->
         {{ with .Params.verdict }}
         <div style="background:#042c53; border:1.5px solid #0066ff; border-radius:10px; padding:20px; margin-bottom:16px; text-align:center;">
           <div style="font-size:11px; color:#00ccff; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Our Pick</div>
@@ -152,7 +173,6 @@
         </div>
         {{ end }}
 
-        <!-- Related Comparisons -->
         {{ if .Params.related }}
         <div style="background:#0a1a2e; border:0.5px solid #1a3a5c; border-radius:10px; padding:20px;">
           <div style="font-size:13px; font-weight:600; color:#ffffff; margin-bottom:14px;">Related Comparisons</div>
@@ -163,10 +183,42 @@
           {{ end }}
         </div>
         {{ end }}
-
       </div>
 
     </div>
   </div>
 </div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "TechArticle",
+  "headline": "{{ .Title }}",
+  "description": "{{ .Description }}",
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "Comparison of {{ .Params.tool_a.name }} and {{ .Params.tool_b.name }}",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "{{ .Params.tool_a.name }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ .Params.tool_b.name }}"
+      }
+    ]
+  },
+  {{ with .Params.verdict }}
+  "significantLink": "{{ .winner }}",
+  {{ end }}
+  "author": {
+    "@type": "Organization",
+    "name": "AlphaFlowGridAI"
+  }
+}
+</script>
+
 {{ end }}

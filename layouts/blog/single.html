@@ -4,10 +4,17 @@
   <div style="max-width:1200px; margin:0 auto;">
 
     <!-- Breadcrumb -->
-    <div style="font-size:13px; color:#7ca4cc; margin-bottom:20px;">
-      <a href="/" style="color:#7ca4cc; text-decoration:none;">Home</a>
+        <!-- Breadcrumb -->
+    <div style="font-size:13px; color:#7ca4cc; margin-bottom:20px;" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item" style="color:#7ca4cc; text-decoration:none;"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1" />
+      </span>
       <span style="margin:0 6px;">›</span>
-      <a href="/blog/" style="color:#7ca4cc; text-decoration:none;">Blog</a>
+      <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/blog/" itemprop="item" style="color:#7ca4cc; text-decoration:none;"><span itemprop="name">Blog</span></a>
+        <meta itemprop="position" content="2" />
+      </span>
       <span style="margin:0 6px;">›</span>
       <span style="color:#00ccff;">{{ .Title }}</span>
     </div>
@@ -75,5 +82,36 @@
     </div>
   </div>
 </div>
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ .Title }}",
+  "description": "{{ .Description }}",
+  "datePublished": "{{ .Date.Format "2006-01-02" }}",
+  "dateModified": "{{ .Lastmod.Format "2006-01-02" }}",
+  "author": {
+    "@type": "Organization",
+    "name": "{{ .Params.author | default "AlphaFlowGridAI" }}"
+  },
+  {{ if .Params.expert_reviewed }}
+  "reviewedBy": {
+    "@type": "Organization",
+    "name": "AlphaFlowGridAI Editorial Team"
+  },
+  {{ end }}
+  "publisher": {
+    "@type": "Organization",
+    "name": "AlphaFlowGridAI",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ "/logo.png" | absURL }}"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ .Permalink }}"
+  }
+}
+</script>
 {{ end }}

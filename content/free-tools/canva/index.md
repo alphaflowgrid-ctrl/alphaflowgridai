@@ -5,6 +5,7 @@ lastmod: 2026-06-16
 description: "Design platform with integrated AI for image generation, background removal, and automated design suggestions."
 pricing: "Freemium"
 score: "80"
+featured: true
 free_tier: "Yes"
 affiliate_link: "https://canva.com"
 draft: false

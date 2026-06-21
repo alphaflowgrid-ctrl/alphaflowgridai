@@ -5,6 +5,7 @@ lastmod: 2026-06-16
 description: "Best all-round AI assistant by OpenAI for writing, analysis and everyday productivity."
 pricing: "Freemium"
 score: "88"
+featured: true
 free_tier: "Yes"
 affiliate_link: "https://openai.com/chatgpt"
 draft: false

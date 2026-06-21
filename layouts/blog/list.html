@@ -4,10 +4,16 @@
 <section style="background:#050d1a; padding:48px 24px 32px; border-bottom:1px solid #1a3a5c;">
   <div style="max-width:1200px; margin:0 auto;">
 
-    <div style="font-size:13px; color:#7ca4cc; margin-bottom:12px;">
-      <a href="/" style="color:#7ca4cc; text-decoration:none;">Home</a>
+    <div style="font-size:13px; color:#7ca4cc; margin-bottom:12px;" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item" style="color:#7ca4cc; text-decoration:none;"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1" />
+      </span>
       <span style="margin:0 6px;">›</span>
-      <span style="color:#00ccff;">{{ .Title }}</span>
+      <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name" style="color:#00ccff;">{{ .Title }}</span>
+        <meta itemprop="position" content="2" />
+      </span>
     </div>
 
     <h1 style="font-size:32px; font-weight:700; color:#ffffff; margin-bottom:8px;">{{ .Title }}</h1>
@@ -61,5 +67,17 @@
 
   </div>
 </section>
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "AlphaFlowGridAI Blog",
+  "description": "{{ .Description | default "Honest guides about AI tools and productivity." }}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "AlphaFlowGridAI"
+  },
+  "url": "{{ .Permalink }}"
+}
+</script>
 {{ end }}

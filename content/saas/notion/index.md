@@ -5,6 +5,7 @@ lastmod: 2026-06-16
 description: "All-in-one workspace for notes, projects, wikis and databases — with AI on Business and Enterprise plans."
 pricing: "Freemium"
 score: "86"
+featured: true
 free_tier: "Yes"
 affiliate_link: "https://notion.so"
 draft: false

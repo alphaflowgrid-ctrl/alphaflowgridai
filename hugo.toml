@@ -1,9 +1,10 @@
 baseURL = 'https://alphaflowgridai.com/'
 defaultContentLanguage = 'en'
 title = 'AlphaFlowGridAI'
+disableHugoGeneratorInject = true
 
 enableRobotsTXT = true
-canonifyURLs = false
+canonifyURLs = true
 
 [pagination]
   pagerSize = 24
@@ -74,5 +75,9 @@ canonifyURLs = false
   home = ["HTML", "JSON"]
   taxonomy = ["HTML"]
   term = ["HTML"]
+
+  [privacy]
+  [privacy.googleAnalytics]
+    anonymizeIP = true
 
 # Deployment pipeline verified June 2026

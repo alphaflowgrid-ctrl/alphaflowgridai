@@ -5,6 +5,7 @@ lastmod: 2026-06-16
 description: "Anthropic's AI assistant built for long-form writing, deep analysis, and safe, honest conversations."
 pricing: "Freemium"
 score: "90"
+featured: true
 free_tier: "Yes"
 affiliate_link: "https://claude.ai"
 draft: false

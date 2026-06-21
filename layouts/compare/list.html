@@ -1,13 +1,20 @@
 {{ define "main" }}
+
 <div style="background:#050d1a; min-height:100vh; padding:40px 24px;">
   <div style="max-width:1200px; margin:0 auto;">
 
-    <!-- Page Header -->
+    <!-- Page Header & Structured Breadcrumbs -->
     <div style="margin-bottom:32px;">
-      <div style="font-size:13px; color:#7ca4cc; margin-bottom:12px;">
-        <a href="/" style="color:#7ca4cc; text-decoration:none;">Home</a>
+      <div style="font-size:13px; color:#7ca4cc; margin-bottom:12px;" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a href="/" itemprop="item" style="color:#7ca4cc; text-decoration:none;"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1" />
+        </span>
         <span style="margin:0 6px;">›</span>
-        <span style="color:#00ccff;">{{ .Title }}</span>
+        <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name" style="color:#00ccff;">{{ .Title }}</span>
+          <meta itemprop="position" content="2" />
+        </span>
       </div>
       <h1 style="font-size:28px; font-weight:700; color:#ffffff; margin-bottom:8px;">{{ .Title }}</h1>
       <p style="font-size:14px; color:#7ca4cc;">{{ .Description }}</p>
@@ -20,20 +27,34 @@
          onmouseover="this.style.borderColor='#00ccff'"
          onmouseout="this.style.borderColor='#1a3a5c'">
 
-        <!-- VS Header -->
+        <!-- VS Header with Tiny Logos -->
         <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
 
-          <!-- Tool A -->
-          <div style="flex:1; background:#0d2137; border-radius:8px; padding:10px 14px; text-align:center;">
-            <div style="font-size:14px; font-weight:700; color:#ffffff;">{{ .Params.tool_a.name | default "Tool A" }}</div>
+          <!-- Tool A Box -->
+          <div style="flex:1; background:#0d2137; border-radius:8px; padding:8px; display:flex; align-items:center; gap:8px; justify-content:center; overflow:hidden;">
+            {{ $urlA := .Params.tool_a.website | default .Params.tool_a.affiliate_link }}
+            {{ if $urlA }}
+              {{ $domainA := (urls.Parse $urlA).Host }}
+              <img src="https://www.google.com/s2/favicons?domain={{ $domainA }}&sz=64" alt="" style="width:18px; height:18px; object-fit:contain;">
+            {{ end }}
+            <div style="font-size:13px; font-weight:700; color:#ffffff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+              {{ .Params.tool_a.name | default "Tool A" }}
+            </div>
           </div>
 
           <!-- VS Badge -->
-          <div style="background:#0066ff; border-radius:6px; padding:4px 8px; font-size:11px; font-weight:700; color:#ffffff; flex-shrink:0;">VS</div>
+          <div style="background:#0066ff; border-radius:6px; padding:4px 8px; font-size:10px; font-weight:800; color:#ffffff; flex-shrink:0;">VS</div>
 
-          <!-- Tool B -->
-          <div style="flex:1; background:#0d2137; border-radius:8px; padding:10px 14px; text-align:center;">
-            <div style="font-size:14px; font-weight:700; color:#ffffff;">{{ .Params.tool_b.name | default "Tool B" }}</div>
+          <!-- Tool B Box -->
+          <div style="flex:1; background:#0d2137; border-radius:8px; padding:8px; display:flex; align-items:center; gap:8px; justify-content:center; overflow:hidden;">
+            {{ $urlB := .Params.tool_b.website | default .Params.tool_b.affiliate_link }}
+            {{ if $urlB }}
+              {{ $domainB := (urls.Parse $urlB).Host }}
+              <img src="https://www.google.com/s2/favicons?domain={{ $domainB }}&sz=64" alt="" style="width:18px; height:18px; object-fit:contain;">
+            {{ end }}
+            <div style="font-size:13px; font-weight:700; color:#ffffff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+              {{ .Params.tool_b.name | default "Tool B" }}
+            </div>
           </div>
 
         </div>
@@ -42,12 +63,12 @@
         <h2 style="font-size:15px; font-weight:600; color:#ffffff; margin-bottom:8px;">{{ .Title }}</h2>
 
         <!-- Description -->
-        <p style="font-size:13px; color:#7ca4cc; line-height:1.6; margin-bottom:16px;">{{ .Description }}</p>
+        <p style="font-size:13px; color:#7ca4cc; line-height:1.6; margin-bottom:16px;">{{ .Description | default .Summary }}</p>
 
         <!-- Meta -->
         <div style="display:flex; align-items:center; justify-content:space-between;">
-          <span style="font-size:11px; color:#7ca4cc;">{{ .Date.Format "Jan 2, 2006" }}</span>
-          <div style="font-size:13px; color:#0066ff; font-weight:600;">See Comparison →</div>
+          <span style="font-size:11px; color:#3a5c7a;">{{ .Date.Format "Jan 2, 2006" }}</span>
+          <div style="font-size:13px; color:#00ccff; font-weight:600;">See Comparison →</div>
         </div>
 
       </a>
@@ -58,4 +79,20 @@
 
   </div>
 </div>
+
+<!-- Collection Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "{{ .Title }}",
+  "description": "{{ .Description }}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "AlphaFlowGridAI"
+  },
+  "url": "{{ .Permalink }}"
+}
+</script>
+
 {{ end }}

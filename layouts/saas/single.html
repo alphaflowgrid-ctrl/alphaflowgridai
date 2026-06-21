@@ -3,19 +3,24 @@
   <div style="max-width:1200px; margin:0 auto;">
 
     <!-- Breadcrumb -->
-    <div style="font-size:13px; color:#7ca4cc; margin-bottom:20px;">
-      <a href="/" style="color:#7ca4cc; text-decoration:none;">Home</a>
+        <!-- Breadcrumb -->
+    <div style="font-size:13px; color:#7ca4cc; margin-bottom:20px;" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item" style="color:#7ca4cc; text-decoration:none;"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1" />
+      </span>
       <span style="margin:0 6px;">›</span>
-      <a href="/{{ .Section }}/" style="color:#7ca4cc; text-decoration:none; text-transform:capitalize;">{{ .Section }}</a>
+      <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/{{ .Section }}/" itemprop="item" style="color:#7ca4cc; text-decoration:none; text-transform:capitalize;"><span itemprop="name">{{ .Section }}</span></a>
+        <meta itemprop="position" content="2" />
+      </span>
       <span style="margin:0 6px;">›</span>
       <span style="color:#00ccff;">{{ .Title }}</span>
     </div>
 
     <!-- Tool Header -->
     <div style="background:#0a1a2e; border:0.5px solid #1a3a5c; border-radius:12px; padding:24px; margin-bottom:24px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-      <div style="width:56px; height:56px; border-radius:12px; background:#0066ff; display:flex; align-items:center; justify-content:center; font-size:20px; color:#fff; font-weight:700; flex-shrink:0;">
-        {{ substr .Title 0 2 | upper }}
-      </div>
+      {{ partial "tool-logo.html" (dict "context" . "size" "56" "radius" "12" "fs" "20") }}
       <div style="flex:1; min-width:200px;">
         <h1 style="font-size:26px; font-weight:700; color:#ffffff; margin-bottom:4px;">{{ .Title }}</h1>
         <p style="font-size:14px; color:#7ca4cc; margin-bottom:10px;">{{ .Description }}</p>
@@ -161,4 +166,27 @@
     </div>
   </div>
 </div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Review",
+  "itemReviewed": {
+    "@type": "SoftwareApplication",
+    "name": "{{ .Title }}",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Web"
+  },
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "{{ .Params.score }}",
+    "bestRating": "100",
+    "worstRating": "0"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "AlphaFlowGridAI"
+  }
+}
+</script>
 {{ end }}

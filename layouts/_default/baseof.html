@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ if .IsHome }}{{ .Site.Title }} — Smart Tools. Better Productivity.{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
   <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+  <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{ "/logo.png" | absURL }}">
+  <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <link rel="icon" href="/logo.png">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -291,7 +298,7 @@
       <li><a href="/newsletter/">Newsletter</a></li>
     </ul>
     <div class="search-wrapper">
-      <input type="search" id="navbar-search" class="navbar-search" placeholder="Search tools..." autocomplete="off">
+      <input type="search" id="navbar-search" class="navbar-search" placeholder="Search tools..." autocomplete="off" aria-label="Search AI tools">
       <div id="navbar-dropdown" class="search-dropdown"></div>
     </div>
   </nav>
@@ -336,8 +343,12 @@
     <div class="footer-bottom">
       <span class="footer-copy">© 2026 AlphaFlowGridAI. All rights reserved.</span>
       <div class="footer-socials">
-        <a href="https://pinterest.com/alphaflowgrid" target="_blank">📌</a>
-        <a href="https://instagram.com/alphaflowgridai" target="_blank">📷</a>
+        <a href="https://pinterest.com/alphaflowgrid" target="_blank" aria-label="Pinterest">
+          <i class="ti ti-brand-pinterest" style="color: #7ca4cc;"></i>
+        </a>
+        <a href="https://instagram.com/alphaflowgridai" target="_blank" aria-label="Instagram">
+          <i class="ti ti-brand-instagram" style="color: #7ca4cc;"></i>
+        </a>
       </div>
     </div>
   </footer>
