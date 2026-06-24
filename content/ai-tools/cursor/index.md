@@ -9,7 +9,7 @@ free_tier: "Yes"
 affiliate_link: "https://cursor.com"
 draft: false
 tags: ["Free tier", "Coding", "AI Editor", "Developer"]
-industries: ["Data & Analytics", "Cybersecurity", "Finance", "Ecommerce"]
+industries: ["Data Analytics", "Cybersecurity", "Finance", "Ecommerce"]
 radar:
   value: 9
   ease: 8

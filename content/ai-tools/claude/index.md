@@ -10,7 +10,7 @@ free_tier: "Yes"
 affiliate_link: "https://claude.ai"
 draft: false
 tags: ["Free tier", "AI Assistant", "Writing", "Analysis"]
-industries: ["Legal", "Education", "Content Creators", "Data & Analytics"]
+industries: ["Legal", "Education", "Content Creators", "Hr Recruitment"]
 radar:
   value: 9
   ease: 9

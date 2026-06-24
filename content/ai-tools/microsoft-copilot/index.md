@@ -9,7 +9,7 @@ free_tier: "Yes"
 affiliate_link: "https://copilot.microsoft.com"
 draft: false
 tags: ["Free tier", "AI Assistant", "Productivity", "Office"]
-industries: ["Finance", "HR & Recruitment", "Ecommerce", "Data & Analytics"]
+industries: ["Finance", "HR & Recruitment", "Ecommerce", "Data Analytics"]
 radar:
   value: 8
   ease: 9

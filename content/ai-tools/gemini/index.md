@@ -9,7 +9,7 @@ free_tier: "Yes"
 affiliate_link: "https://gemini.google.com"
 draft: false
 tags: ["Free tier", "AI Assistant", "Research", "Productivity"]
-industries: ["Education", "Marketing", "Finance", "HR & Recruitment"]
+industries: ["Education", "Marketing", "Finance", "Hr Recruitment"]
 radar:
   value: 9
   ease: 9

@@ -9,7 +9,7 @@ free_tier: "Yes"
 affiliate_link: "https://github.com/features/copilot"
 draft: false
 tags: ["Free tier", "Coding", "AI Assistant", "Developer"]
-industries: ["Finance", "Cybersecurity", "Data & Analytics", "Healthcare"]
+industries: ["Finance", "Cybersecurity", "Data", "Healthcare"]
 radar:
   value: 9
   ease: 9

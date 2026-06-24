@@ -10,7 +10,7 @@ free_tier: "Yes"
 affiliate_link: "https://openai.com/chatgpt"
 draft: false
 tags: ["Free tier", "AI Assistant", "Writing", "Productivity"]
-industries: ["Marketing", "Education", "Content Creators", "HR & Recruitment"]
+industries: ["Marketing", "Education", "Content Creators", "Hr Recruitment"]
 radar:
   value: 9
   ease: 10
