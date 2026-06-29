@@ -16,7 +16,7 @@ methodology: "/methodology/"
 
 cpa: true
 lead_magnet: true
-offer_link: "YOUR_CPA_OFFER_LINK_HERE"
+offer_link: "sql-prompt-pack-for-data-analysts.pdf"
 
 key_takeaways:
   - "AI can help analysts write, explain and optimize SQL faster."
@@ -353,7 +353,7 @@ It includes prompts for:
 - customer segmentation
 - executive summaries
 
-[Unlock Free Prompt Pack](YOUR_CPA_OFFER_LINK_HERE)
+<a href="/downloads/sql-prompt-pack-for-data-analysts.pdf" download target="_blank" rel="noopener" style="display:inline-block; background:#0066ff; color:#ffffff; padding:14px 22px; border-radius:8px; text-decoration:none; font-weight:700; margin:16px 0;"> Unlock Free Prompt Pack → </a>
 
 ---
 

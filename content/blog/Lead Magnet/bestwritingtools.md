@@ -16,7 +16,7 @@ methodology: "/methodology/"
 
 cpa: true
 lead_magnet: true
-offer_link: "YOUR_CPA_OFFER_LINK_HERE"
+offer_link: "/downloads/50-ai-prompts-for-marketers.pdf"
 
 key_takeaways:
   - "Claude is best for long-form writing and deep reasoning."
@@ -256,7 +256,9 @@ We created a free AI Writing Prompt Pack with ready-to-use prompts for:
 
 Use it with ChatGPT, Claude, Gemini, Jasper, Writesonic, Copy.ai, or any other AI writing tool.
 
-[Unlock Free Prompt Pack](YOUR_CPA_OFFER_LINK_HERE)
+<a href="/downloads/50-ai-prompts-for-marketers.pdf" download target="_blank" rel="noopener" style="display:inline-block; background:#0066ff; color:#ffffff; padding:14px 22px; border-radius:8px; text-decoration:none; font-weight:700; margin:16px 0;">
+  Unlock Free Prompt Pack →
+</a>
 
 ---
 

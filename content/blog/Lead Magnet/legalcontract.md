@@ -16,7 +16,7 @@ methodology: "/methodology/"
 
 cpa: true
 lead_magnet: true
-offer_link: "YOUR_CPA_OFFER_LINK_HERE"
+offer_link: "ai-contract-review-checklist-for-legal-teams.pdf"
 
 key_takeaways:
   - "AI can speed up contract review, but a lawyer should always verify the final output."
@@ -336,7 +336,7 @@ It includes:
 - business summary prompt
 - legal AI safety checklist
 
-[Unlock Free Checklist](YOUR_CPA_OFFER_LINK_HERE)
+<a href="/downloads/ai-contract-review-checklist-for-legal-teams.pdf" download target="_blank" rel="noopener" style="display:inline-block; background:#0066ff; color:#ffffff; padding:14px 22px; border-radius:8px; text-decoration:none; font-weight:700; margin:16px 0;"> Unlock Free Checklist → </a>
 
 ---
 

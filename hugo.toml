@@ -1,4 +1,4 @@
-baseURL = 'https://alphaflowgridai.com/'
+baseURL = 'https://www.alphaflowgridai.com/'
 defaultContentLanguage = 'en'
 title = 'AlphaFlowGridAI'
 disableHugoGeneratorInject = true
@@ -19,7 +19,7 @@ canonifyURLs = true
 
 [params.author]
   name = "AlphaFlowGridAI"
-  email = "alphaflowgrid@gmail.com"
+  email = "contact@alphaflowgridai.com"
 
 [markup]
   [markup.goldmark]

@@ -16,7 +16,7 @@ methodology: "/methodology/"
 
 cpa: true
 lead_magnet: true
-offer_link: "YOUR_CPA_OFFER_LINK_HERE"
+offer_link: "small-business-cybersecurity-checklist.pdf"
 
 key_takeaways:
   - "Small businesses should start with passwords, MFA, backups, device updates and phishing protection."
@@ -298,7 +298,7 @@ It includes:
 - employee access checklist
 - incident response mini-plan
 
-[Unlock Free Checklist](YOUR_CPA_OFFER_LINK_HERE)
+<a href="/downloads/small-business-cybersecurity-checklist.pdf" download target="_blank" rel="noopener" style="display:inline-block; background:#0066ff; color:#ffffff; padding:14px 22px; border-radius:8px; text-decoration:none; font-weight:700; margin:16px 0;"> Unlock Free Checklist → </a>
 
 ---
 

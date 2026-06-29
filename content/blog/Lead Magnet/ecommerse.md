@@ -16,7 +16,7 @@ methodology: "/methodology/"
 
 cpa: true
 lead_magnet: true
-offer_link: "YOUR_CPA_OFFER_LINK_HERE"
+offer_link: "50-ecommerce-product-description-prompts.pdf"
 
 key_takeaways:
   - "AI prompts can help ecommerce teams write product copy faster and test more angles."
@@ -330,7 +330,7 @@ It includes prompts for:
 - social captions
 - upsell and cross-sell copy
 
-[Unlock Free Prompt Pack](YOUR_CPA_OFFER_LINK_HERE)
+<a href="/downloads/50-ecommerce-product-description-prompts.pdf" download target="_blank" rel="noopener" style="display:inline-block; background:#0066ff; color:#ffffff; padding:14px 22px; border-radius:8px; text-decoration:none; font-weight:700; margin:16px 0;"> Unlock Free Prompt Pack → </a>
 
 ---
 

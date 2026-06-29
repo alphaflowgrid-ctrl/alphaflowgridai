@@ -16,7 +16,7 @@ methodology: "/methodology/"
 
 cpa: true
 lead_magnet: true
-offer_link: "YOUR_CPA_OFFER_LINK_HERE"
+offer_link: "ai-resume-screening-checklist-for-recruiters.pdf"
 
 key_takeaways:
   - "AI can help recruiters screen resumes faster, but hiring decisions still need human review."
@@ -306,7 +306,7 @@ It includes:
 - rejection email prompt
 - AI hiring risk checklist
 
-[Unlock Free Checklist](YOUR_CPA_OFFER_LINK_HERE)
+<a href="/downloads/ai-resume-screening-checklist-for-recruiters.pdf" download target="_blank" rel="noopener" style="display:inline-block; background:#0066ff; color:#ffffff; padding:14px 22px; border-radius:8px; text-decoration:none; font-weight:700; margin:16px 0;"> Unlock Free Checklist → </a>
 
 ---
 
