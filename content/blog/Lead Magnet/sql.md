@@ -353,7 +353,7 @@ It includes prompts for:
 - customer segmentation
 - executive summaries
 
-<a href="/downloads/sql-prompt-pack-for-data-analysts.pdf" download target="_blank" rel="noopener" style="display:inline-block; background:#0066ff; color:#ffffff; padding:14px 22px; border-radius:8px; text-decoration:none; font-weight:700; margin:16px 0;"> Unlock Free Prompt Pack → </a>
+{{< pdf title="Free SQL Prompt Pack for Data Analysts" desc="Practical AI prompts for SQL queries, dashboards, data cleaning and analytics workflows." >}}
 
 ---
 

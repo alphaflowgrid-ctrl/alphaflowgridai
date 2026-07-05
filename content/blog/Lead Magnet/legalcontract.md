@@ -336,7 +336,7 @@ It includes:
 - business summary prompt
 - legal AI safety checklist
 
-<a href="/downloads/ai-contract-review-checklist-for-legal-teams.pdf" download target="_blank" rel="noopener" style="display:inline-block; background:#0066ff; color:#ffffff; padding:14px 22px; border-radius:8px; text-decoration:none; font-weight:700; margin:16px 0;"> Unlock Free Checklist → </a>
+{{< pdf title="Free AI Contract Review Checklist for Legal Teams" desc="A practical checklist for using AI to review contracts, flag risks and improve legal workflows." >}}
 
 ---
 

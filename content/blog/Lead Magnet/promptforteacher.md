@@ -258,9 +258,8 @@ It includes prompts for:
 - project ideas
 - homework support
 
-<a href="/downloads/50-ai-lesson-plan-prompts-for-teachers.pdf" download target="_blank" rel="noopener" style="display:inline-block; background:#0066ff; color:#ffffff; padding:14px 22px; border-radius:8px; text-decoration:none; font-weight:700; margin:16px 0;">
-  Unlock Free Prompt Pack →
-</a>
+
+{{< pdf title="Free AI Lesson Plan Prompts for Teachers" desc="Practical AI prompts for lesson plans, quizzes, rubrics, feedback and classroom activities." >}}
 
 ---
 

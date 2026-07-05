@@ -330,7 +330,8 @@ It includes prompts for:
 - social captions
 - upsell and cross-sell copy
 
-<a href="/downloads/50-ecommerce-product-description-prompts.pdf" download target="_blank" rel="noopener" style="display:inline-block; background:#0066ff; color:#ffffff; padding:14px 22px; border-radius:8px; text-decoration:none; font-weight:700; margin:16px 0;"> Unlock Free Prompt Pack → </a>
+{{< pdf title="Free Product Description Prompts for Ecommerce Stores"
+desc="Practical AI prompts for product descriptions, SEO copy, ads, emails and ecommerce content." >}}
 
 ---
 

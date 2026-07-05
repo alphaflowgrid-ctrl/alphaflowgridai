@@ -298,7 +298,7 @@ It includes:
 - employee access checklist
 - incident response mini-plan
 
-<a href="/downloads/small-business-cybersecurity-checklist.pdf" download target="_blank" rel="noopener" style="display:inline-block; background:#0066ff; color:#ffffff; padding:14px 22px; border-radius:8px; text-decoration:none; font-weight:700; margin:16px 0;"> Unlock Free Checklist → </a>
+{{< pdf title="Free Cybersecurity Checklist for Small Businesses" desc= "A practical cybersecurity checklist for passwords, devices, email, backups and free security tools." >}}
 
 ---
 

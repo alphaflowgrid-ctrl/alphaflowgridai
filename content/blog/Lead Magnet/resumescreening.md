@@ -306,7 +306,7 @@ It includes:
 - rejection email prompt
 - AI hiring risk checklist
 
-<a href="/downloads/ai-resume-screening-checklist-for-recruiters.pdf" download target="_blank" rel="noopener" style="display:inline-block; background:#0066ff; color:#ffffff; padding:14px 22px; border-radius:8px; text-decoration:none; font-weight:700; margin:16px 0;"> Unlock Free Checklist → </a>
+{{< pdf title="Free AI Resume Screening Checklist for Recruiters" desc="A practical checklist for using AI in resume screening, job descriptions and interviews." >}}
 
 ---
 

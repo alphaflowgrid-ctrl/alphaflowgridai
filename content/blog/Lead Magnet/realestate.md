@@ -312,9 +312,8 @@ It includes prompts for:
 - Facebook posts
 - CMA summary copy
 
-<a href="/downloads/50-ai-listing-description-prompts-for-real-estate-agents.pdf" download target="_blank" rel="noopener" style="display:inline-block; background:#0066ff; color:#ffffff; padding:14px 22px; border-radius:8px; text-decoration:none; font-weight:700; margin:16px 0;">
-  Unlock Free Prompt Pack →
-</a>
+{{< pdf title="Free AI Listing Description Prompts for Real Estate Agents" desc="Practical AI prompts for listing descriptions, open house copy, follow-ups and real estate marketing." >}}
+
 
 ---
 
