@@ -1,0 +1,53 @@
+{{ $title := .Get "title" }}
+{{ $desc := .Get "desc" }}
+{{ $file := .Get "file" }}
+{{ $uniqueID := substr (delimit (shuffle (split "abcdefghijklmnopqrstuvwxyz" "")) "") 0 6 }}
+
+<div style="background:#050d1a; padding:40px 24px; border:1px solid #1a3a5c; border-radius:12px; text-align:center; margin: 32px 0;">
+
+  <!-- "Free Download" Badge -->
+  <div style="display:inline-block; background:#0a1a2e; border:0.5px solid #0066ff; border-radius:20px; padding:4px 16px; font-size:11px; color:#0066ff; margin-bottom:16px; font-weight:600; text-transform:uppercase; letter-spacing:1px;">
+      Free Download
+  </div>
+
+  <h2 style="font-size:24px; font-weight:700; color:#ffffff; margin-bottom:10px; margin-top:0;">{{ $title }}</h2>
+
+  {{ if $desc }}
+  <p style="font-size:14px; color:#7ca4cc; margin-bottom:24px; line-height:1.6;">{{ $desc }}</p>
+  {{ end }}
+
+  <!-- The Custom HTML Form (Matches your newsletter design perfectly) -->
+  <!-- We use target="hidden_iframe" so it submits in the background WITHOUT opening a new tab or error page -->
+  <form action="https://embeds.beehiiv.com/ad59540a-eb3f-413c-adb6-9c0092e409e8/subscribe" method="POST" target="hidden_iframe_{{ $uniqueID }}" 
+        style="max-width:400px; margin: 0 auto;"
+        onsubmit="
+            document.getElementById('dl-{{ $uniqueID }}').style.display='block'; 
+            document.getElementById('btn-{{ $uniqueID }}').innerText='Subscribed!';
+            document.getElementById('btn-{{ $uniqueID }}').style.opacity='0.7';
+        ">
+    
+    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <!-- The Input Box -->
+        <input type="email" name="email" placeholder="Enter your email" required 
+               style="flex: 1; min-width: 200px; padding: 12px 16px; background:#0f172a; border:1px solid #1a3a5c; border-radius:6px; font-size:15px; color:#ffffff; outline:none;">
+        
+        <!-- The Submit Button -->
+        <button id="btn-{{ $uniqueID }}" type="submit" 
+                style="padding: 12px 24px; background:#2563eb; color:#ffffff; border:none; border-radius:6px; font-size:15px; font-weight:600; cursor:pointer; transition: background-color 0.2s;">
+            Subscribe
+        </button>
+    </div>
+  </form>
+
+  <!-- The Invisible Iframe (Acts as a "Black Hole" to catch the Beehiiv submission quietly) -->
+  <iframe name="hidden_iframe_{{ $uniqueID }}" style="display:none;"></iframe>
+
+  <!-- The Hidden Download Link (Only shows AFTER successful single-click submit) -->
+  <div id="dl-{{ $uniqueID }}" style="display: none; margin-top: 24px; padding-top: 16px; border-top: 1px dashed #1a3a5c;">
+      <p style="margin:0 0 8px 0; font-size: 13px; color:#7ca4cc;">✅ Thank you for subscribing!</p>
+      <a href="/downloads/{{ $file }}" target="_blank" style="color: #0066ff; text-decoration: underline; font-weight: 600; font-size: 15px;">
+          ⬇️ Click here to download {{ $file }}
+      </a>
+  </div>
+
+</div>
