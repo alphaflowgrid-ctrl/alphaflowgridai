@@ -1,0 +1,48 @@
+{{ define "main" }}
+<div style="max-width:500px; margin: 80px auto; padding: 40px 24px; background:#050d1a; border:1px solid #1a3a5c; border-radius:12px; text-align:center;">
+
+  <div id="ty-loading">
+    <p style="color:#7ca4cc; font-size:15px;">Preparing your download...</p>
+  </div>
+
+  <div id="ty-success" style="display:none;">
+    <div style="display:inline-block; background:#0a1a2e; border:0.5px solid #16a34a; border-radius:20px; padding:4px 16px; font-size:11px; color:#16a34a; margin-bottom:16px; font-weight:600; text-transform:uppercase; letter-spacing:1px;">
+      Success
+    </div>
+    <h1 style="font-size:22px; font-weight:700; color:#ffffff; margin-bottom:12px;">You're subscribed! 🎉</h1>
+    <p id="ty-filename" style="font-size:14px; color:#7ca4cc; margin-bottom:24px;"></p>
+    <a id="ty-download-link" href="#" download style="display:inline-block; padding: 12px 28px; background:#2563eb; color:#ffffff; text-decoration:none; border-radius:6px; font-size:15px; font-weight:600;">
+      ⬇️ Download Now
+    </a>
+  </div>
+
+  <div id="ty-fallback" style="display:none;">
+    <h1 style="font-size:20px; font-weight:700; color:#ffffff; margin-bottom:12px;">Thanks for subscribing!</h1>
+    <p style="font-size:14px; color:#7ca4cc;">
+      Head back to the blog post you came from — your download link is there.
+    </p>
+  </div>
+
+</div>
+
+<script>
+  (function() {
+    var file = sessionStorage.getItem('requestedFile');
+    var title = sessionStorage.getItem('requestedTitle');
+
+    document.getElementById('ty-loading').style.display = 'none';
+
+    if (file) {
+      document.getElementById('ty-success').style.display = 'block';
+      document.getElementById('ty-filename').textContent = title ? title : file;
+      var link = document.getElementById('ty-download-link');
+      link.href = '/downloads/' + file;
+
+      sessionStorage.removeItem('requestedFile');
+      sessionStorage.removeItem('requestedTitle');
+    } else {
+      document.getElementById('ty-fallback').style.display = 'block';
+    }
+  })();
+</script>
+{{ end }}
