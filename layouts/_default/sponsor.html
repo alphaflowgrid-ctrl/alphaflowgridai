@@ -1,0 +1,232 @@
+{{ define "main" }}
+<style>
+  /* Sponsor page helpers */
+  .sponsor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .sponsor-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .s-input {
+    width: 100%;
+    background: #050d1a;
+    border: 0.5px solid #1a3a5c;
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .s-input::placeholder { color: #3a5c7a; }
+  .s-input:focus { border-color: #00ccff; }
+  select.s-input { appearance: auto; }
+  .s-label { display: block; font-size: 12px; font-weight: 600; color: #7ca4cc; margin-bottom: 6px; }
+  .format-row { display: flex; align-items: flex-start; gap: 14px; padding: 16px 0; border-bottom: 0.5px solid #1a3a5c; }
+  .format-row:last-of-type { border-bottom: none; padding-bottom: 0; }
+  .sponsor-alert { display: none; border-radius: 8px; padding: 12px 14px; font-size: 13px; margin-top: 14px; }
+  @media (max-width: 768px) {
+    .sponsor-grid { grid-template-columns: 1fr; }
+    .sponsor-form-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div style="background:#050d1a; min-height:100vh; padding:40px 24px;">
+  <div style="max-width:900px; margin:0 auto;">
+
+    <!-- Breadcrumb -->
+    <div style="font-size:13px; color:#7ca4cc; margin-bottom:20px;">
+      <a href="/" style="color:#7ca4cc; text-decoration:none;">Home</a>
+      <span style="margin:0 6px;">›</span>
+      <span style="color:#00ccff;">{{ .Title }}</span>
+    </div>
+
+    <!-- Hero -->
+    <div style="background:#0a1a2e; border:0.5px solid #1a3a5c; border-radius:12px; padding:32px; margin-bottom:24px;">
+      <span style="display:inline-block; background:#042c53; border:1px solid #0066ff; color:#00ccff; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; border-radius:6px; padding:4px 10px; margin-bottom:16px;">Partnerships</span>
+      <h1 style="font-size:30px; font-weight:700; color:#ffffff; margin-bottom:10px;">{{ .Title }}</h1>
+      <p style="font-size:15px; color:#7ca4cc; line-height:1.7; margin-bottom:18px;">
+        Put your product in front of founders, marketers and developers who come to
+        <strong style="color:#ffffff;">AlphaFlowGridAI</strong> to research, compare and choose their next
+        AI or SaaS tool — right at the moment they're ready to buy.
+      </p>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <span style="background:#070f1e; border:0.5px solid #1a3a5c; border-radius:6px; padding:4px 12px; font-size:12px; color:#7ca4cc;">🧠 AI Tools</span>
+        <span style="background:#070f1e; border:0.5px solid #1a3a5c; border-radius:6px; padding:4px 12px; font-size:12px; color:#7ca4cc;">☁️ SaaS</span>
+        <span style="background:#070f1e; border:0.5px solid #1a3a5c; border-radius:6px; padding:4px 12px; font-size:12px; color:#7ca4cc;">🆓 Free Tools</span>
+        <span style="background:#070f1e; border:0.5px solid #1a3a5c; border-radius:6px; padding:4px 12px; font-size:12px; color:#7ca4cc;">⚖️ In-depth Comparisons</span>
+      </div>
+    </div>
+
+    <!-- Why sponsor -->
+    <div style="background:#0a1a2e; border:0.5px solid #1a3a5c; border-radius:12px; padding:24px; margin-bottom:24px;">
+      <div style="font-size:15px; font-weight:600; color:#ffffff; margin-bottom:16px;">Why sponsor AlphaFlowGridAI</div>
+      <div class="sponsor-grid">
+        <div style="background:#070f1e; border:0.5px solid #1a3a5c; border-radius:10px; padding:18px;">
+          <div style="font-size:22px; margin-bottom:10px;">🎯</div>
+          <div style="font-size:14px; font-weight:600; color:#ffffff; margin-bottom:6px;">High-intent audience</div>
+          <div style="font-size:13px; color:#7ca4cc; line-height:1.6;">Our visitors arrive to research, compare and pick tools. Your brand reaches buyers mid-decision — not passive scrollers.</div>
+        </div>
+        <div style="background:#070f1e; border:0.5px solid #1a3a5c; border-radius:10px; padding:18px;">
+          <div style="font-size:22px; margin-bottom:10px;">📈</div>
+          <div style="font-size:14px; font-weight:600; color:#ffffff; margin-bottom:6px;">SEO-driven traffic</div>
+          <div style="font-size:13px; color:#7ca4cc; line-height:1.6;">Our comparison and tool pages rank on Google, sending a steady stream of organic visitors to the pages where your product appears.</div>
+        </div>
+        <div style="background:#070f1e; border:0.5px solid #1a3a5c; border-radius:10px; padding:18px;">
+          <div style="font-size:22px; margin-bottom:10px;">🔒</div>
+          <div style="font-size:14px; font-weight:600; color:#ffffff; margin-bottom:6px;">Clean &amp; selective</div>
+          <div style="font-size:13px; color:#7ca4cc; line-height:1.6;">We only accept sponsors that genuinely fit our directory. No cluttered ad slots — your brand gets space to stand out.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sponsorship formats -->
+    <div style="background:#0a1a2e; border:0.5px solid #1a3a5c; border-radius:12px; padding:24px; margin-bottom:24px;">
+      <div style="font-size:15px; font-weight:600; color:#ffffff; margin-bottom:6px;">Ways to partner</div>
+      <div style="font-size:13px; color:#7ca4cc; margin-bottom:10px;">Every partnership is priced individually based on placement and duration — tell us your budget and we'll recommend the best fit.</div>
+
+      <div class="format-row">
+        <div style="font-size:20px; flex-shrink:0;">⭐</div>
+        <div style="flex:1;">
+          <div style="font-size:14px; font-weight:600; color:#ffffff; margin-bottom:4px;">Featured Listing</div>
+          <div style="font-size:13px; color:#7ca4cc; line-height:1.6;">Your tool pinned at the top of its category page with a "Featured" badge, plus a full review page.</div>
+        </div>
+      </div>
+      <div class="format-row">
+        <div style="font-size:20px; flex-shrink:0;">🏠</div>
+        <div style="flex:1;">
+          <div style="font-size:14px; font-weight:600; color:#ffffff; margin-bottom:4px;">Homepage Spotlight</div>
+          <div style="font-size:13px; color:#7ca4cc; line-height:1.6;">A prominent spotlight on our homepage, seen by every visitor before they dive into the directory.</div>
+        </div>
+      </div>
+      <div class="format-row">
+        <div style="font-size:20px; flex-shrink:0;">📬</div>
+        <div style="flex:1;">
+          <div style="font-size:14px; font-weight:600; color:#ffffff; margin-bottom:4px;">Newsletter Feature</div>
+          <div style="font-size:13px; color:#7ca4cc; line-height:1.6;">A dedicated mention of your product in our newsletter, delivered straight to our subscribers' inboxes.</div>
+        </div>
+      </div>
+      <div class="format-row">
+        <div style="font-size:20px; flex-shrink:0;">📝</div>
+        <div style="flex:1;">
+          <div style="font-size:14px; font-weight:600; color:#ffffff; margin-bottom:4px;">Content Partnership</div>
+          <div style="font-size:13px; color:#7ca4cc; line-height:1.6;">Sponsor a comparison article or blog post relevant to your product — great for long-term SEO visibility.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How it works -->
+    <div style="background:#0a1a2e; border:0.5px solid #1a3a5c; border-radius:12px; padding:24px; margin-bottom:24px;">
+      <div style="font-size:15px; font-weight:600; color:#ffffff; margin-bottom:16px;">How it works</div>
+      <div class="sponsor-grid">
+        <div style="text-align:center; padding:6px;">
+          <div style="width:36px; height:36px; margin:0 auto 10px; border-radius:50%; background:#042c53; border:1px solid #0066ff; color:#00ccff; font-weight:700; display:flex; align-items:center; justify-content:center;">1</div>
+          <div style="font-size:13px; color:#7ca4cc; line-height:1.6;"><strong style="color:#ffffff;">Send an inquiry</strong><br>Tell us about your product and budget.</div>
+        </div>
+        <div style="text-align:center; padding:6px;">
+          <div style="width:36px; height:36px; margin:0 auto 10px; border-radius:50%; background:#042c53; border:1px solid #0066ff; color:#00ccff; font-weight:700; display:flex; align-items:center; justify-content:center;">2</div>
+          <div style="font-size:13px; color:#7ca4cc; line-height:1.6;"><strong style="color:#ffffff;">Get a proposal</strong><br>We reply within 48 hours with options and pricing.</div>
+        </div>
+        <div style="text-align:center; padding:6px;">
+          <div style="width:36px; height:36px; margin:0 auto 10px; border-radius:50%; background:#042c53; border:1px solid #0066ff; color:#00ccff; font-weight:700; display:flex; align-items:center; justify-content:center;">3</div>
+          <div style="font-size:13px; color:#7ca4cc; line-height:1.6;"><strong style="color:#ffffff;">Go live</strong><br>Approve the creative and your placement goes live.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact form -->
+    <div style="background:#0a1a2e; border:0.5px solid #1a3a5c; border-radius:12px; padding:24px;">
+      <div style="font-size:15px; font-weight:600; color:#ffffff; margin-bottom:4px;">Tell us about your product</div>
+      <div style="font-size:13px; color:#7ca4cc; margin-bottom:18px;">We reply within 24–48 hours. Prefer email? Write to <a href="mailto:contact@alphaflowgridai.com" style="color:#00ccff; text-decoration:none;">contact@alphaflowgridai.com</a></div>
+
+      <!-- Reuses the same Formspree form as the Contact page (xykaoblo).
+           The hidden _subject field tags sponsor inquiries in your inbox. -->
+      <form id="sponsor-form" action="https://formspree.io/f/xykaoblo" method="POST">
+        <input type="hidden" name="_subject" value="New sponsorship inquiry — AlphaFlowGridAI">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="sponsor-form-grid" style="margin-bottom:14px;">
+          <div>
+            <label class="s-label" for="sp-name">Your name *</label>
+            <input class="s-input" id="sp-name" type="text" name="name" placeholder="Jane Smith" required>
+          </div>
+          <div>
+            <label class="s-label" for="sp-email">Work email *</label>
+            <input class="s-input" id="sp-email" type="email" name="email" placeholder="jane@yourproduct.com" required>
+          </div>
+          <div>
+            <label class="s-label" for="sp-company">Company / product website</label>
+            <input class="s-input" id="sp-company" type="text" name="company" placeholder="yourproduct.com">
+          </div>
+          <div>
+            <label class="s-label" for="sp-interest">Interested in</label>
+            <select class="s-input" id="sp-interest" name="interest">
+              <option>Not sure yet — recommend for me</option>
+              <option>Featured Listing</option>
+              <option>Homepage Spotlight</option>
+              <option>Newsletter Feature</option>
+              <option>Content Partnership</option>
+            </select>
+          </div>
+          <div style="grid-column: 1 / -1;">
+            <label class="s-label" for="sp-budget">Monthly budget (optional)</label>
+            <select class="s-input" id="sp-budget" name="budget">
+              <option>Prefer not to say</option>
+              <option>Under $100</option>
+              <option>$100 – $500</option>
+              <option>$500 – $1,000</option>
+              <option>$1,000+</option>
+              <option>One-time campaign</option>
+            </select>
+          </div>
+          <div style="grid-column: 1 / -1;">
+            <label class="s-label" for="sp-message">Message *</label>
+            <textarea class="s-input" id="sp-message" name="message" rows="4" placeholder="Tell us about your product and what you'd like to achieve..." required></textarea>
+          </div>
+        </div>
+
+        <button type="submit" id="sp-submit" style="width:100%; background:#0066ff; color:#ffffff; border:none; border-radius:10px; padding:14px; font-size:15px; font-weight:700; font-family:inherit; cursor:pointer;">Send inquiry →</button>
+
+        <div id="sp-success" class="sponsor-alert" style="background:#04221a; border:0.5px solid #0a5c3a; color:#4ade80;">✅ Thanks! Your inquiry has been sent. We'll get back to you within 48 hours.</div>
+        <div id="sp-error" class="sponsor-alert" style="background:#2a0a0a; border:0.5px solid #5c1a1a; color:#f87171;">❌ Something went wrong. Please try again, or email us directly at contact@alphaflowgridai.com</div>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  (function () {
+    var form = document.getElementById('sponsor-form');
+    if (!form) return;
+    var btn = document.getElementById('sp-submit');
+    var ok = document.getElementById('sp-success');
+    var err = document.getElementById('sp-error');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      ok.style.display = 'none';
+      err.style.display = 'none';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (res) {
+        if (res.ok) {
+          form.reset();
+          ok.style.display = 'block';
+          btn.textContent = 'Sent ✓';
+        } else {
+          err.style.display = 'block';
+          btn.disabled = false;
+          btn.textContent = 'Send inquiry →';
+        }
+      }).catch(function () {
+        err.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Send inquiry →';
+      });
+    });
+  })();
+</script>
+{{ end }}
