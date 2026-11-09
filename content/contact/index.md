@@ -41,7 +41,7 @@ We would love to hear from you. Whether you want to suggest a tool, enquire abou
 Know a great AI tool or SaaS product we have not listed yet? Tell us about it and we will review it.
 
 **Sponsored Listings**
-Want your tool featured at the top of a category? We offer sponsored listing placements for relevant AI and SaaS products.
+Want your tool featured at the top of a category? Visit our [Sponsor with Us](/sponsor/) page to see all placement options, or drop us a message below.
 
 **Partnership Inquiries**
 Interested in collaborating, guest posting or cross-promoting? We are open to relevant partnerships.
